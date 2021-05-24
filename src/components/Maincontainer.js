@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Title from './Title.js'
 import Extens from './Extens.js'
+import Theline from './Theline.js'
 
 export const Maincontainer = () => {
+
     const items = [
         {
             'content': 'home',
@@ -48,20 +50,13 @@ export const Maincontainer = () => {
     ]
 
     return (
-            <div className="main-container">
-                <Route path='/' exact>
-                    {items.map((item) => (
-                        <Title item={item} />
-                    ))}
-                </Route>
+        <div className="main-container">
+            <Theline />
 
-                {items.map((item) => (
-                    item.more === true && <Route path={`/${item.extens}`} exact render={() =>
-                    (<Extens identifier={item.extens} />
-                    )} />
-                )
-                )}
-            </div>
+            {items.map((item) => (<Title item={item} />))}
+
+            {items.map((item) => (item.more === true && <Extens identifier={item.extens} />))}
+        </div>
     )
 }
 

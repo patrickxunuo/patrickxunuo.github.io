@@ -1,7 +1,7 @@
 .App {
-  text-align: center;
-  min-height: 100vh;
-  height: 100%;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -17,24 +17,23 @@ a {
 /* header */
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   padding-top: 1em;
-  background-color: rgb(12, 12, 12);
+  background-color: var(--black);
   z-index: 99;
-  box-shadow: 0px 1em 1em 1em rgb(12, 12, 12);
-}
-
-.header-container {
+  box-shadow: 0 1em 1em 1em var(--black);
   width: 95%;
+  left: 2.5%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
 .header-breadcrumb {
-  font-size: 1 em;
-  color: rgb(131, 114, 206);
+  margin: 0 1em;
+  font-size: 1em;
+  color: var(--purple);
 }
 
 /* nav */
@@ -56,7 +55,7 @@ nav ul li {
 }
 
 li .fa {
-  margin: 0;
+  margin: 0 1em;
 }
 
 nav a {
@@ -65,7 +64,19 @@ nav a {
 }
 
 nav ul li:hover>a {
-  color: rgb(131, 114, 206);
+  color: var(--purple);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label, .nav-toggle-label::before, .nav-toggle-label::after {
+  display: none;
+}
+
+.nav-canvas {
+  display: none;
 }
 
 /* main container */
@@ -73,10 +84,8 @@ nav ul li:hover>a {
 .main-container {
   display: block;
   position: relative;
-  left: 20%;
+  padding-left: 20%;
   top: 20rem;
-  margin-left: 2rem;
-  width: 75%;
   height: fit-content;
   margin-bottom: 450px;
 }
@@ -85,21 +94,22 @@ nav ul li:hover>a {
 
 .ball-line {
   display: block;
-  position: fixed;
-  left: 20%;
-  top: 45%;
+  position: relative;
+  left: -5em;
+  top: 5em;
 }
 
 .the-ball {
   display: block;
-  position: inherit;
-  width: 10px;
-  height: 10px;
+  position: fixed;
+  width: 0.625em;
+  height: 0.625em;
   border-radius: 100%;
-  background: rgb(131, 114, 206);
+  background: var(--purple);
   box-shadow: none;
   cursor: pointer;
   transition: 1s ease;
+  z-index: 999;
 }
 
 .the-ball:hover {
@@ -108,11 +118,12 @@ nav ul li:hover>a {
 
 .the-line {
   display: block;
-  position: inherit;
-  margin-left: 5px;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(rgb(131, 114, 206), rgb(12, 12, 12));
+  position: fixed;
+  width: 0.0625em;
+  min-height: 100vh;
+  background: linear-gradient(var(--purple), var(--black));
+  margin-left: 4px;
+  z-index: 99;
 }
 
 /* title */
@@ -134,7 +145,7 @@ nav ul li:hover>a {
 }
 
 .title .span-2 {
-  color: rgb(131, 114, 206);
+  color: var(--purple);
 }
 
 .first-title {
@@ -142,13 +153,13 @@ nav ul li:hover>a {
 }
 
 .title-item {
-  margin: 5px 0;
+  margin: 0.3em 0;
 }
 
 .title-location, .title-time {
   display: inline-block;
   font-size: 1.25em;
-  color: rgb(131, 114, 206);
+  color: var(--purple);
 }
 
 .title-what {
@@ -173,12 +184,11 @@ nav ul li:hover>a {
   transition: 0.5s ease;
 }
 
-
 .more-btn:hover {
   color: #fff;
 }
 
-.more-btn:hover ~ .title-arrow {
+.more-btn:hover~.title-arrow {
   animation: 0.5s bounce ease-in-out infinite;
   color: #fff;
 }
@@ -189,7 +199,6 @@ nav ul li:hover>a {
   background: transparent;
 }
 
-
 /* form */
 
 form {
@@ -197,6 +206,7 @@ form {
 }
 
 /* footer */
+
 footer {
   position: relative;
 }
@@ -209,7 +219,7 @@ footer p {
 /* fa */
 
 .fa {
-  color: rgb(131, 114, 206);
+  color: var(--purple);
   font-size: 1.5em;
   margin: 0 1.25em;
   transition: 0.5s ease;
@@ -219,26 +229,118 @@ footer p {
   color: #fff;
 }
 
-@media (max-width: 600px) {
-  .ball-line {
-    left: 5%;
-  }
+@media (max-width: 800px) {
   body {
     position: relative;
     width: 100%;
     height: 100%;
     min-width: 100%;
   }
+  nav {
+    all: unset;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    right: 0;
+    top: 40px;
+    text-align: right;
+    font-size: 2em;
+    transform-origin: right;
+    transform: translateX(50%);
+    transition: 0.8s ease;
+    z-index: 999999;
+  }
+  .nav-canvas {
+    display: block;
+    position: fixed;
+    width: 200vw;
+    height: 200vw;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: black;
+    opacity: 0;
+    z-index: 9999;
+    transition: 0.8s ease;
+  }
+  nav .fa {
+    font-size: 1em;
+    margin-right: 0;
+  }
+  nav ul {
+    all: unset;
+    list-style-type: none;
+  }
+  nav ul li {
+    margin: 1em 0;
+    margin-left: 1em;
+  }
+  .nav-toggle-label {
+    display: flex;
+    align-items: center;
+    z-index: 999999;
+  }
+  .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
+    position: relative;
+    display: block;
+    background: #fff;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    transition: 0.8s ease;
+    right: 0;
+  }
+  .nav-toggle-label span::before, .nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+  .nav-toggle-label span::before {
+    bottom: 7px;
+  }
+  .nav-toggle-label span::after {
+    top: 7px;
+  }
+  .ball-line {
+    display: block;
+    position: relative;
+    left: -2em;
+    top: 5em;
+  }
+  .nav-toggle:checked~nav {
+    transform: translateX(0);
+  }
+  .nav-toggle:checked~.nav-toggle-label span::before {
+    width: 0.5em;
+  }
+  .nav-toggle:checked~.nav-toggle-label span {
+    width: 1em;
+  }
+  .nav-toggle:checked~.nav-toggle-label span::after {
+    width: 1.5em;
+  }
+  .nav-toggle:checked~ .nav-canvas {
+    opacity: 0.5;
+  }
 }
 
 /* animation keyframe */
+
 @keyframes bounce {
-  from {left: 0;}
-  to {left: 2em;}
+  from {
+    left: 0;
+  }
+  to {
+    left: 2em;
+  }
 }
 
 @keyframes ballgradient {
-  0% {box-shadow: none;}
-  50% {box-shadow: 0px 0px 15px 10px rgba(131, 114, 206, 0.8);}
-  100% {box-shadow: none;}
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0px 0px 15px 10px rgba(131, 114, 206, 0.8);
+  }
+  100% {
+    box-shadow: none;
+  }
 }

@@ -24,10 +24,9 @@ const Title = ({ item }) => {
                 item.what !== null ? <div className="title-item title-what">{item.what}</div> : <></>
             }
 
-            <Link to={`/${item.extens}`}>
-                {item.more && <input className="more-btn" type="button" value="More" />}
-                {item.more && <span className="title-arrow">{'-->'}</span>}
-            </Link>
+            {item.more && <input className="more-btn" type="button" value="More" />}
+            {item.more && <span className="title-arrow">{'-->'}</span>}
+
             <div className="space-block"></div>
         </div>
     )
