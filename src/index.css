@@ -5,6 +5,8 @@
 :root {
   --black: rgb(12, 12, 12);
   --purple: rgb(131, 114, 206);
+  --white: #fff;
+  --mono: 'Roboto Mono', monospace;
 }
 
 html {

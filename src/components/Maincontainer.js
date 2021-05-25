@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Title from './Title.js'
-import Extens from './Extens.js'
-import Theline from './Theline.js'
 
 export const Maincontainer = () => {
+    const [ballState, setBallState] = useState("main")
 
     const items = [
         {
@@ -51,11 +49,13 @@ export const Maincontainer = () => {
 
     return (
         <div className="main-container">
-            <Theline />
+            <div className="ball-line">
+                <div className="the-ball" />
+                <div className="the-line" />
+            </div>
 
             {items.map((item) => (<Title item={item} />))}
 
-            {items.map((item) => (item.more === true && <Extens identifier={item.extens} />))}
         </div>
     )
 }

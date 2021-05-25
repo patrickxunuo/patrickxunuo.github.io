@@ -9,7 +9,7 @@ export const Extens = (props) => {
         case 'intership/1':
             inside = <div style={{ color: 'red' }}>wtf</div>
             break
-        case 'iternship/2':
+        case 'intership/2':
             inside = <div style={{ color: 'red' }}>wtf2</div>
             break
         case 'contact':
@@ -21,7 +21,6 @@ export const Extens = (props) => {
 
     return (
         <div>
-            
             {inside}
         </div>
     )
