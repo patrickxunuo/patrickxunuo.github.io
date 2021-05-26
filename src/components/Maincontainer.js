@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Title from './Title.js'
 
 export const Maincontainer = () => {
-    const [ballState, setBallState] = useState("main")
 
     const items = [
         {
+            'id': 1,
             'content': 'home',
             'location': 'Vancouer',
             'time': 'now',
@@ -14,6 +14,7 @@ export const Maincontainer = () => {
             'extens': null
         },
         {
+            'id': 2,
             'content': 'education',
             'location': 'Simon Fraser University',
             'time': '2017 - 2021',
@@ -22,22 +23,25 @@ export const Maincontainer = () => {
             'extens': null
         },
         {
+            'id': 3,
             'content': 'intership',
-            'location': 'Beijing',
-            'time': 'May - Dec 2019',
-            'what': `PwC China as Full Stack Intern`,
+            'location': null,
+            'time': null,
+            'what': null,
             'more': true,
-            'extens': 'intership/1'
+            'extens': 'intership'
         },
         {
-            'content': 'intership',
-            'location': 'West Vancouver',
-            'time': '2018',
-            'what': `Sager Education as Robotics Instructor`,
+            'id': 4,
+            'content': 'project',
+            'location': null,
+            'time': null,
+            'what': null,
             'more': true,
-            'extens': 'intership/2'
+            'extens': 'project'
         },
         {
+            'id': 5,
             'content': 'contact',
             'location': null,
             'time': null,
@@ -55,6 +59,7 @@ export const Maincontainer = () => {
             </div>
 
             {items.map((item) => (<Title item={item} />))}
+
 
         </div>
     )
