@@ -1,5 +1,6 @@
 import React from 'react'
 import Title from './Title.js'
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion"
 
 export const Maincontainer = () => {
 
@@ -57,9 +58,9 @@ export const Maincontainer = () => {
                 <div className="the-ball" />
                 <div className="the-line" />
             </div>
-
+            <AnimateSharedLayout type="crossfade">
             {items.map((item) => (<Title item={item} />))}
-
+            </AnimateSharedLayout>
 
         </div>
     )
