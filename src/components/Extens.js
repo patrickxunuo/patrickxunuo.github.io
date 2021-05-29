@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 export const Extens = (props) => {
 

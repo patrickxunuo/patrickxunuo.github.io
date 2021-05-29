@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import "aos/dist/aos.css"
 import Extens from './Extens.js'
-import { motion, AnimateSharedLayout, AnimatePresence, animate } from "framer-motion"
-import Image8 from './svg/image8.jpg'
+import { motion, AnimatePresence } from "framer-motion"
+
 
 const Title = ({ item }) => {
 
     const [extendState, setExtendState] = useState(false)
     const titleExpand = {
-        open: { scale: 1.01, position: "fixed", top: "50%", left: "50%", boxShadow: "5px 5px 15px 5px black", zIndex: 99999, x: "-50", y: "-50" },
-        closed: { scale: 1, position: "relative", top: 0, left: 0, boxShadow: "none", zIndex: 0, margin: 0, marginBottom: "2em", x: "0", y: "0" },
+        open: { scale: 1.01, position: "fixed", top: "50%", left: "50%", boxShadow: "5px 5px 15px 5px black", zIndex: 99999, x: "-50", y: "-50" , background:"var(--black)"},
+        closed: { scale: 1, position: "relative", top: 0, left: 0, boxShadow: "none", zIndex: 0, margin: 0, marginBottom: "2em", x: "0", y: "0" , background:"none"},
         titleOpen: { display: "none" },
         titleClosed: { display: "block" }
     }
@@ -20,7 +20,7 @@ const Title = ({ item }) => {
 
 
     return (
-        <motion layout>
+        <>
             <motion.div layout
                 className="title-canvas"
                 animate={extendState ? "open" : "closed"}
@@ -67,7 +67,7 @@ const Title = ({ item }) => {
                 }
             </motion.div>
             <div className="space-block" />
-        </motion>
+        </>
     )
 }
 

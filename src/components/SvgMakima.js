@@ -1,37 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     motion,
     useViewportScroll,
     useSpring,
-    useTransform,
-    transform
-} from "framer-motion";
+    useTransform
+} from "framer-motion"
 
 export const SvgMakima = () => {
-    const { scrollYProgress } = useViewportScroll();
-    const yRange = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
-    const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
+    const { scrollYProgress } = useViewportScroll()
+    const yRange = useTransform(scrollYProgress, [0.0, 0.2], [1, 0])
+    const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 })
+    const [offsetY, setOffSetY] = useState(0)
+    const handleScroll = () => setOffSetY(window.pageYOffset)
+   
+    useEffect(() => {
+      window.addEventListener("scroll", handleScroll)
 
+      return () => window.removeEventListener("scroll", handleScroll)
+    },[])
 
     return (
-        <div style={{ background: "var(--black)" }}>
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 927.000000 1401.000000" preserveAspectRatio="xMidYMid meet">
+        <div className="svg-container" style={{textAlign:"end"}}>
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
+            style={{minWidth:"800px",width:"40%", height:"40%", transform:`translateX(${offsetY * 0.05}px)`}}
+             viewBox="0 0 927.000000 1401.000000" preserveAspectRatio="xMidYMid meet">
                 <motion.g transform="translate(0.000000,1401.000000) scale(0.100000,-0.100000)">
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4242 12709 c-30 -5 -82 -20 -115 -33 -34 -14 -102 -34 -152 -46
+                        }} 
+                        d="M4242 12709 c-30 -5 -82 -20 -115 -33 -34 -14 -102 -34 -152 -46
 -111 -26 -136 -35 -203 -73 -66 -36 -62 -48 4 -13 27 14 58 26 70 26 27 0 71
 -34 95 -74 13 -22 19 -26 19 -13 0 19 -26 48 -75 84 l-30 22 32 1 c17 0 34 4
 37 9 3 5 36 14 73 21 37 7 90 24 119 37 74 34 242 49 382 34 127 -13 362 -60
@@ -367,328 +369,181 @@ m4 -492 c2 -57 -40 -193 -48 -157 -5 24 -48 40 -72 27 -23 -12 -36 -66 -20
 -11 -30 -33 -27 -28 3 -40 32 -28 64 6 16 52 19 61 4z m-135 -160 c0 -79 -3
 -110 -12 -110 -14 0 -78 60 -78 72 0 5 13 26 29 48 15 21 34 53 41 70 7 16 14
 30 16 30 2 0 4 -49 4 -110z m-83 -1282 c-3 -8 -6 -5 -6 6 -1 11 2 17 5 13 3
--3 4 -12 1 -19z" class="svg-elem-1"></motion.path>
+-3 4 -12 1 -19z"  className="svg-elem-1"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3483 10380 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z" class="svg-elem-2"></motion.path>
+                        }} d="M3483 10380 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z"  className="svg-elem-2"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3442 10260 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-3"></motion.path>
+                        }} d="M3442 10260 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-3"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3393 10100 c0 -47 2 -66 4 -42 2 23 2 61 0 85 -2 23 -4 4 -4 -43z" class="svg-elem-4"></motion.path>
+                        }} d="M3393 10100 c0 -47 2 -66 4 -42 2 23 2 61 0 85 -2 23 -4 4 -4 -43z"  className="svg-elem-4"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3402 9895 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-5"></motion.path>
+                        }} d="M3402 9895 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-5"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3422 9540 c0 -19 2 -27 5 -17 2 9 2 25 0 35 -3 9 -5 1 -5 -18z" class="svg-elem-6"></motion.path>
+                        }} d="M3422 9540 c0 -19 2 -27 5 -17 2 9 2 25 0 35 -3 9 -5 1 -5 -18z"  className="svg-elem-6"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3432 9430 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-7"></motion.path>
+                        }} d="M3432 9430 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-7"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5449 10073 l-24 -28 28 24 c15 14 27 26 27 28 0 8 -8 1 -31 -24z" class="svg-elem-8"></motion.path>
+                        }} d="M5449 10073 l-24 -28 28 24 c15 14 27 26 27 28 0 8 -8 1 -31 -24z"  className="svg-elem-8"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4971 9274 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-9"></motion.path>
+                        }} d="M4971 9274 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-9"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4941 9158 c-20 -71 -34 -110 -78 -217 -4 -8 -2 -12 4 -8 19 12 73
 136 66 154 -4 11 -3 14 5 9 8 -4 10 -2 6 7 -3 8 2 40 11 72 9 31 15 58 13 61
--3 2 -15 -33 -27 -78z" class="svg-elem-10"></motion.path>
+-3 2 -15 -33 -27 -78z"  className="svg-elem-10"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5052 8825 c-17 -37 -14 -45 4 -12 9 16 14 31 11 33 -2 2 -9 -7 -15
--21z" class="svg-elem-11"></motion.path>
+-21z"  className="svg-elem-11"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3904 9154 c-18 -14 -18 -14 6 -3 31 14 36 19 24 19 -6 0 -19 -7 -30
--16z" class="svg-elem-12"></motion.path>
+-16z"  className="svg-elem-12"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3945 8939 c-22 -10 -33 -18 -25 -18 8 0 31 8 50 19 45 25 27 24 -25
--1z" class="svg-elem-13"></motion.path>
+-1z"  className="svg-elem-13"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3796 8733 c-6 -14 -5 -15 5 -6 7 7 10 15 7 18 -3 3 -9 -2 -12 -12z" class="svg-elem-14"></motion.path>
+                        }} d="M3796 8733 c-6 -14 -5 -15 5 -6 7 7 10 15 7 18 -3 3 -9 -2 -12 -12z"  className="svg-elem-14"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6123 8220 c-15 -22 -33 -38 -40 -35 -7 2 -10 -2 -7 -8 2 -7 -18 -51
 -46 -97 -27 -46 -50 -88 -50 -94 1 -6 8 3 16 19 33 62 97 155 107 155 6 0 8 3
-4 6 -3 4 7 26 24 50 16 24 28 44 25 44 -3 0 -17 -18 -33 -40z" class="svg-elem-15"></motion.path>
+4 6 -3 4 7 26 24 50 16 24 28 44 25 44 -3 0 -17 -18 -33 -40z"  className="svg-elem-15"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5880 7954 c0 -2 16 -10 35 -18 45 -19 44 -34 -2 -41 -21 -4 -45 -7
 -53 -9 -8 -1 7 -4 34 -7 29 -3 54 0 60 7 7 6 34 15 61 19 48 8 49 8 20 16 -65
-18 -155 37 -155 33z" class="svg-elem-16"></motion.path>
+18 -155 37 -155 33z"  className="svg-elem-16"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3968 7763 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z" class="svg-elem-17"></motion.path>
+                        }} d="M3968 7763 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z"  className="svg-elem-17"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4123 7723 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z" class="svg-elem-18"></motion.path>
+                        }} d="M4123 7723 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z"  className="svg-elem-18"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4048 7713 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z" class="svg-elem-19"></motion.path>
+                        }} d="M4048 7713 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z"  className="svg-elem-19"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3973 7703 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z" class="svg-elem-20"></motion.path>
+                        }} d="M3973 7703 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z"  className="svg-elem-20"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5895 7641 c-38 -19 -39 -19 -12 -20 15 -1 37 8 49 19 27 25 15 25
--37 1z" class="svg-elem-21"></motion.path>
+-37 1z"  className="svg-elem-21"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -697,80 +552,45 @@ m4 -492 c2 -57 -40 -193 -48 -157 -5 24 -48 40 -72 27 -23 -12 -36 -66 -20
 -17 -31 -10 -7 -54 -43 -98 -78 -90 -72 -275 -262 -349 -358 l-49 -64 68 75
 c123 134 299 312 348 351 52 42 93 50 100 22 3 -10 6 -2 7 17 3 66 7 82 19 90
 7 4 12 9 12 11 -3 20 16 52 38 64 16 9 20 14 10 15 -10 0 -19 16 -26 48 l-10
-47 1 -50z" class="svg-elem-22"></motion.path>
+47 1 -50z"  className="svg-elem-22"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M6068 7523 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z" class="svg-elem-23"></motion.path>
+                        }} d="M6068 7523 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z"  className="svg-elem-23"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5988 7513 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z" class="svg-elem-24"></motion.path>
+                        }} d="M5988 7513 c12 -2 30 -2 40 0 9 3 -1 5 -23 4 -22 0 -30 -2 -17 -4z"  className="svg-elem-24"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6200 7495 c-14 -8 -20 -14 -15 -14 6 0 21 6 35 14 14 8 21 14 15 14
--5 0 -21 -6 -35 -14z" class="svg-elem-25"></motion.path>
+-5 0 -21 -6 -35 -14z"  className="svg-elem-25"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6046 7450 c-27 -11 -54 -24 -60 -30 -6 -6 16 0 49 14 33 13 67 26
-75 29 13 5 13 5 0 6 -8 0 -37 -9 -64 -19z" class="svg-elem-26"></motion.path>
+75 29 13 5 13 5 0 6 -8 0 -37 -9 -64 -19z"  className="svg-elem-26"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -787,203 +607,112 @@ c123 134 299 312 348 351 52 42 93 50 100 22 3 -10 6 -2 7 17 3 66 7 82 19 90
 2 24 26 67 53 80 49 204 136 204 143 0 5 -19 -7 -70 -43 -72 -52 -155 -95
 -181 -95 -17 0 -33 14 -56 48 l-33 48 10 269 c6 149 15 331 20 405 5 74 9 151
 8 170 -2 66 -26 -244 -34 -450 -5 -113 -10 -191 -11 -175 -8 88 -87 417 -158
-660 -24 83 -55 196 -69 252 -23 90 -74 234 -88 248 -3 3 1 -27 9 -67z" class="svg-elem-27"></motion.path>
+660 -24 83 -55 196 -69 252 -23 90 -74 234 -88 248 -3 3 1 -27 9 -67z"  className="svg-elem-27"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5478 6978 c-73 -79 -192 -204 -263 -278 -190 -196 -202 -214 -30
--43 138 137 442 463 431 463 -2 0 -64 -64 -138 -142z" class="svg-elem-28"></motion.path>
+-43 138 137 442 463 431 463 -2 0 -64 -64 -138 -142z"  className="svg-elem-28"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5721 6944 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-29"></motion.path>
+                        }} d="M5721 6944 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-29"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M6283 6810 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z" class="svg-elem-30"></motion.path>
+                        }} d="M6283 6810 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z"  className="svg-elem-30"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6591 6081 c-9 -6 -3 -10 18 -13 36 -5 38 -3 13 11 -10 5 -24 6 -31
-2z" class="svg-elem-31"></motion.path>
+2z"  className="svg-elem-31"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M6528 6039 l-33 -31 32 22 c18 11 35 25 38 30 12 19 -5 9 -37 -21z" class="svg-elem-32"></motion.path>
+                        }} d="M6528 6039 l-33 -31 32 22 c18 11 35 25 38 30 12 19 -5 9 -37 -21z"  className="svg-elem-32"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3541 5804 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-33"></motion.path>
+                        }} d="M3541 5804 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-33"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3531 5754 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-34"></motion.path>
+                        }} d="M3531 5754 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-34"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3521 5703 c0 -4 4 -17 9 -28 8 -19 9 -19 9 2 1 12 -3 25 -9 28 -5 3
--10 3 -9 -2z" class="svg-elem-35"></motion.path>
+-10 3 -9 -2z"  className="svg-elem-35"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3572 5650 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-36"></motion.path>
+                        }} d="M3572 5650 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-36"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3522 5625 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-37"></motion.path>
+                        }} d="M3522 5625 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-37"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6341 5586 c36 -13 88 -33 114 -45 26 -12 50 -19 53 -17 12 12 -17
-28 -103 56 -112 35 -160 40 -64 6z" class="svg-elem-38"></motion.path>
+28 -103 56 -112 35 -160 40 -64 6z"  className="svg-elem-38"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4506 5447 c-26 -34 -34 -53 -17 -43 10 7 53 76 46 76 -2 0 -15 -15
--29 -33z" class="svg-elem-39"></motion.path>
+-29 -33z"  className="svg-elem-39"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -991,820 +720,456 @@ c123 134 299 312 348 351 52 42 93 50 100 22 3 -10 6 -2 7 17 3 66 7 82 19 90
 -110 -171 -140 -162 -10 3 -32 -3 -51 -15 -39 -24 -30 -27 13 -4 34 17 44 12
 97 -46 19 -20 22 -21 13 -4 -5 11 -17 26 -25 34 -25 20 -20 33 36 85 42 39 62
 51 98 56 l45 6 -42 2 c-24 0 -43 4 -43 7 0 3 16 57 36 120 20 64 34 117 32
-119 -2 3 -14 -16 -26 -40z" class="svg-elem-40"></motion.path>
+119 -2 3 -14 -16 -26 -40z"  className="svg-elem-40"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5978 5263 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z" class="svg-elem-41"></motion.path>
+                        }} d="M5978 5263 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z"  className="svg-elem-41"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M6040 5250 c34 -11 60 -11 35 0 -11 5 -29 8 -40 8 -16 0 -15 -2 5 -8z" class="svg-elem-42"></motion.path>
+                        }} d="M6040 5250 c34 -11 60 -11 35 0 -11 5 -29 8 -40 8 -16 0 -15 -2 5 -8z"  className="svg-elem-42"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4848 5233 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z" class="svg-elem-43"></motion.path>
+                        }} d="M4848 5233 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z"  className="svg-elem-43"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3929 5213 c-13 -16 -12 -17 4 -4 9 7 17 15 17 17 0 8 -8 3 -21 -13z" class="svg-elem-44"></motion.path>
+                        }} d="M3929 5213 c-13 -16 -12 -17 4 -4 9 7 17 15 17 17 0 8 -8 3 -21 -13z"  className="svg-elem-44"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6210 5200 c8 -5 20 -10 25 -10 6 0 3 5 -5 10 -8 5 -19 10 -25 10 -5
-0 -3 -5 5 -10z" class="svg-elem-45"></motion.path>
+0 -3 -5 5 -10z"  className="svg-elem-45"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3882 5153 c-40 -51 -143 -203 -138 -203 2 0 25 30 51 66 26 36 48
 64 50 62 8 -7 -27 -169 -55 -258 -16 -52 -28 -96 -26 -98 6 -6 54 147 82 263
-14 60 36 131 49 157 13 27 22 48 20 48 -2 0 -17 -17 -33 -37z" class="svg-elem-46"></motion.path>
+14 60 36 131 49 157 13 27 22 48 20 48 -2 0 -17 -17 -33 -37z"  className="svg-elem-46"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4420 5055 l-65 -11 64 -7 c35 -4 73 -7 85 -7 20 1 20 1 -2 13 -12 7
--19 16 -16 20 4 4 5 6 3 6 -2 -1 -33 -7 -69 -14z" class="svg-elem-47"></motion.path>
+-19 16 -16 20 4 4 5 6 3 6 -2 -1 -33 -7 -69 -14z"  className="svg-elem-47"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4732 5012 c-20 -6 -21 -9 -10 -24 12 -16 14 -15 31 8 19 25 17 26
--21 16z" class="svg-elem-48"></motion.path>
+-21 16z"  className="svg-elem-48"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3719 4923 c-13 -16 -12 -17 4 -4 16 13 21 21 13 21 -2 0 -10 -8 -17
--17z" class="svg-elem-49"></motion.path>
+-17z"  className="svg-elem-49"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4817 4805 c9 -19 18 -33 21 -31 4 5 -26 66 -33 66 -3 0 3 -16 12
--35z" class="svg-elem-50"></motion.path>
+-35z"  className="svg-elem-50"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5140 4549 c-96 -50 -164 -87 -150 -83 43 11 358 178 328 174 -2 -1
--82 -41 -178 -91z" class="svg-elem-51"></motion.path>
+-82 -41 -178 -91z"  className="svg-elem-51"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3542 8430 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-52"></motion.path>
+                        }} d="M3542 8430 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-52"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3563 8323 c-3 -10 -8 -22 -11 -27 -3 -5 0 -6 5 -3 11 7 25 47 17 47
--3 0 -7 -8 -11 -17z" class="svg-elem-53"></motion.path>
+-3 0 -7 -8 -11 -17z"  className="svg-elem-53"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3611 8314 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-54"></motion.path>
+                        }} d="M3611 8314 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-54"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3650 8281 c0 -6 4 -13 10 -16 6 -3 7 1 4 9 -7 18 -14 21 -14 7z" class="svg-elem-55"></motion.path>
+                        }} d="M3650 8281 c0 -6 4 -13 10 -16 6 -3 7 1 4 9 -7 18 -14 21 -14 7z"  className="svg-elem-55"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3471 7884 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-56"></motion.path>
+                        }} d="M3471 7884 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-56"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3461 7845 c1 -19 18 -51 18 -35 0 8 -4 22 -9 30 -5 8 -9 11 -9 5z" class="svg-elem-57"></motion.path>
+                        }} d="M3461 7845 c1 -19 18 -51 18 -35 0 8 -4 22 -9 30 -5 8 -9 11 -9 5z"  className="svg-elem-57"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M6820 8686 c0 -9 5 -16 10 -16 6 0 10 4 10 9 0 6 -4 13 -10 16 -5 3
--10 -1 -10 -9z" class="svg-elem-58"></motion.path>
+-10 -1 -10 -9z"  className="svg-elem-58"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3362 8000 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-59"></motion.path>
+                        }} d="M3362 8000 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-59"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2781 5694 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-60"></motion.path>
+                        }} d="M2781 5694 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-60"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2791 5654 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-61"></motion.path>
+                        }} d="M2791 5654 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-61"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2580 4961 c0 -5 -12 -14 -27 -19 l-28 -10 31 -1 c31 -1 53 22 34 34
--6 4 -10 2 -10 -4z" class="svg-elem-62"></motion.path>
+-6 4 -10 2 -10 -4z"  className="svg-elem-62"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2470 4930 c-11 -8 -7 -9 15 -4 37 8 45 14 19 14 -10 0 -26 -5 -34
--10z" class="svg-elem-63"></motion.path>
+-10z"  className="svg-elem-63"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2643 4923 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z" class="svg-elem-64"></motion.path>
+                        }} d="M2643 4923 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z"  className="svg-elem-64"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2930 4786 c0 -2 8 -10 18 -17 15 -13 16 -12 3 4 -13 16 -21 21 -21
-13z" class="svg-elem-65"></motion.path>
+13z"  className="svg-elem-65"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2495 4757 c-57 -22 -153 -73 -185 -100 -31 -25 -87 -103 -94 -129
 -5 -22 -1 -30 25 -49 l32 -22 -7 56 c-5 41 -3 63 8 85 27 52 136 121 249 158
 40 13 63 23 52 23 -11 0 -47 -10 -80 -22z m-236 -260 c1 -10 -3 -15 -9 -12 -5
-3 -10 21 -9 38 0 27 2 29 9 12 5 -11 9 -28 9 -38z" class="svg-elem-66"></motion.path>
+3 -10 21 -9 38 0 27 2 29 9 12 5 -11 9 -28 9 -38z"  className="svg-elem-66"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2479 4283 c19 -4 21 -7 10 -15 -12 -8 -12 -9 0 -6 28 8 24 28 -6 27
--26 -2 -26 -2 -4 -6z" class="svg-elem-67"></motion.path>
+-26 -2 -26 -2 -4 -6z"  className="svg-elem-67"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2557 4249 c23 -11 54 -33 69 -47 23 -24 25 -24 15 -5 -12 24 -88 73
--112 73 -8 0 5 -9 28 -21z" class="svg-elem-68"></motion.path>
+-112 73 -8 0 5 -9 28 -21z"  className="svg-elem-68"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2416 4245 c4 -8 8 -15 10 -15 2 0 4 7 4 15 0 8 -4 15 -10 15 -5 0
--7 -7 -4 -15z" class="svg-elem-69"></motion.path>
+-7 -7 -4 -15z"  className="svg-elem-69"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2354 4235 c-17 -13 -16 -14 14 -4 33 11 41 19 19 19 -7 0 -22 -7
--33 -15z" class="svg-elem-70"></motion.path>
+-33 -15z"  className="svg-elem-70"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2452 4185 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-71"></motion.path>
+                        }} d="M2452 4185 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-71"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2402 4170 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-72"></motion.path>
+                        }} d="M2402 4170 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-72"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2443 4110 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z" class="svg-elem-73"></motion.path>
+                        }} d="M2443 4110 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z"  className="svg-elem-73"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2828 4121 c10 -6 13 -27 10 -74 -1 -36 0 -63 4 -59 3 4 8 37 10 75
-3 62 1 67 -17 67 -15 0 -17 -2 -7 -9z" class="svg-elem-74"></motion.path>
+3 62 1 67 -17 67 -15 0 -17 -2 -7 -9z"  className="svg-elem-74"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2773 4113 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z" class="svg-elem-75"></motion.path>
+                        }} d="M2773 4113 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z"  className="svg-elem-75"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2738 4063 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z" class="svg-elem-76"></motion.path>
+                        }} d="M2738 4063 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z"  className="svg-elem-76"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2654 4029 c-2 -39 -31 -78 -79 -105 -24 -14 -32 -24 -24 -27 12 -4
 11 -7 -1 -16 -8 -6 -11 -11 -6 -11 25 0 126 129 126 162 0 9 8 19 18 21 11 3
-9 5 -8 6 -21 1 -25 -4 -26 -30z" class="svg-elem-77"></motion.path>
+9 5 -8 6 -21 1 -25 -4 -26 -30z"  className="svg-elem-77"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3626 3933 c-10 -40 -16 -78 -13 -85 3 -7 6 -4 6 8 1 11 8 41 17 67
-9 25 14 54 12 64 -2 9 -11 -15 -22 -54z" class="svg-elem-78"></motion.path>
+9 25 14 54 12 64 -2 9 -11 -15 -22 -54z"  className="svg-elem-78"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M2490 3951 c5 -11 15 -23 21 -27 6 -3 3 5 -6 20 -20 30 -30 35 -15 7z" class="svg-elem-79"></motion.path>
+                        }} d="M2490 3951 c5 -11 15 -23 21 -27 6 -3 3 5 -6 20 -20 30 -30 35 -15 7z"  className="svg-elem-79"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3020 3953 c0 -5 10 -19 21 -33 l20 -25 -16 33 c-15 30 -25 41 -25
-25z" class="svg-elem-80"></motion.path>
+25z"  className="svg-elem-80"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3071 3870 c14 -31 19 -36 19 -24 0 6 -7 19 -16 30 -14 18 -14 18 -3
--6z" class="svg-elem-81"></motion.path>
+-6z"  className="svg-elem-81"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3096 3805 c8 -37 14 -45 14 -19 0 10 -5 26 -10 34 -8 11 -9 7 -4
--15z" class="svg-elem-82"></motion.path>
+-15z"  className="svg-elem-82"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3595 3780 c-4 -23 -5 -43 -2 -46 2 -3 7 14 11 37 4 23 5 44 2 46 -2
-2 -7 -14 -11 -37z" class="svg-elem-83"></motion.path>
+2 -7 -14 -11 -37z"  className="svg-elem-83"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M2890 3328 c-9 -20 -9 -21 2 -7 7 9 20 18 28 22 12 4 12 6 -2 6 -10
-1 -22 -9 -28 -21z" class="svg-elem-84"></motion.path>
+1 -22 -9 -28 -21z"  className="svg-elem-84"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3818 12523 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z" class="svg-elem-85"></motion.path>
+                        }} d="M3818 12523 c12 -2 32 -2 45 0 12 2 2 4 -23 4 -25 0 -35 -2 -22 -4z"  className="svg-elem-85"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3804 12483 c22 -3 48 -10 57 -17 16 -11 13 -14 -28 -24 -60 -16 -52
 -21 21 -12 54 6 57 5 40 -9 -41 -35 -48 -55 -9 -26 22 17 42 33 45 36 3 3 25
 10 50 16 l45 11 -36 1 c-20 0 -56 8 -79 16 -23 8 -66 14 -94 13 -46 -1 -47 -2
--12 -5z" class="svg-elem-86"></motion.path>
+-12 -5z"  className="svg-elem-86"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3728 12473 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z" class="svg-elem-87"></motion.path>
+                        }} d="M3728 12473 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z"  className="svg-elem-87"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4957 12385 c32 -39 71 -86 86 -105 27 -34 27 -34 -2 10 -16 25 -55
-72 -86 105 l-56 60 58 -70z" class="svg-elem-88"></motion.path>
+72 -86 105 l-56 60 58 -70z"  className="svg-elem-88"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5055 12185 c4 -11 23 -72 41 -135 33 -117 45 -133 20 -28 -24 102
 14 43 85 -131 21 -53 39 -90 39 -84 0 24 -62 169 -117 273 -51 98 -87 154 -68
-105z" class="svg-elem-89"></motion.path>
+105z"  className="svg-elem-89"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3736 12004 c-4 -14 -5 -28 -3 -31 3 -2 8 8 11 23 4 14 5 28 3 31 -3
-2 -8 -8 -11 -23z" class="svg-elem-90"></motion.path>
+2 -8 -8 -11 -23z"  className="svg-elem-90"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4541 12000 c0 -8 4 -24 9 -35 5 -13 9 -14 9 -5 0 8 -4 24 -9 35 -5
-13 -9 14 -9 5z" class="svg-elem-91"></motion.path>
+13 -9 14 -9 5z"  className="svg-elem-91"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -1814,83 +1179,48 @@ l-13 70 0 -85 c-1 -56 2 -78 8 -65 l9 20 0 -20 c2 -33 64 -166 109 -232 24
 -35 45 -63 47 -63 2 0 -8 26 -22 57 -15 31 -28 79 -31 106 -3 32 -8 44 -13 35
 -5 -8 -9 12 -9 52 0 39 -6 77 -16 95 -30 58 -45 165 -43 305 1 74 2 162 2 195
 -1 46 1 54 8 35 7 -19 7 -16 3 13 -3 21 0 63 6 93 7 31 10 58 7 60 -2 2 -12
--33 -21 -78z" class="svg-elem-92"></motion.path>
+-33 -21 -78z"  className="svg-elem-92"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3972 11913 c-4 -91 -43 -277 -77 -364 -44 -114 -45 -136 -2 -44 l32
-70 6 -70 5 -70 2 91 c1 50 11 146 23 213 11 66 18 142 16 168 l-3 48 -2 -42z" class="svg-elem-93"></motion.path>
+70 6 -70 5 -70 2 91 c1 50 11 146 23 213 11 66 18 142 16 168 l-3 48 -2 -42z"  className="svg-elem-93"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4562 11920 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-94"></motion.path>
+                        }} d="M4562 11920 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-94"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4764 11927 c35 -110 66 -350 66 -509 0 -109 -5 -142 -21 -132 -15 9
 -10 -7 11 -33 31 -40 24 -47 -11 -11 l-30 33 26 -52 c32 -67 17 -69 -25 -3
 -18 28 -34 50 -36 50 -8 0 16 -42 53 -93 l34 -49 -4 -201 c-4 -210 -1 -189 22
-138 14 212 -3 517 -39 697 -17 83 -35 158 -41 167 -9 14 -10 14 -5 -2z" class="svg-elem-95"></motion.path>
+138 14 212 -3 517 -39 697 -17 83 -35 158 -41 167 -9 14 -10 14 -5 -2z"  className="svg-elem-95"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3736 11904 c-4 -14 -5 -28 -3 -31 3 -2 8 8 11 23 4 14 5 28 3 31 -3
-2 -8 -8 -11 -23z" class="svg-elem-96"></motion.path>
+2 -8 -8 -11 -23z"  className="svg-elem-96"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -1898,80 +1228,45 @@ l-13 70 0 -85 c-1 -56 2 -78 8 -65 l9 20 0 -20 c2 -33 64 -166 109 -232 24
 -20 12 20 c7 11 15 22 18 25 15 13 30 60 35 115 4 39 12 64 23 73 9 7 12 12 5
 12 -7 0 -12 7 -12 16 0 8 5 12 10 9 6 -4 10 18 10 58 0 35 3 92 6 126 6 51 10
 61 23 56 15 -5 15 -4 0 7 -13 10 -17 44 -22 167 -7 150 -7 153 13 148 20 -5
-20 -4 -1 25 -12 16 -28 51 -35 76 l-14 47 5 -40z" class="svg-elem-97"></motion.path>
+20 -4 -1 25 -12 16 -28 51 -35 76 l-14 47 5 -40z"  className="svg-elem-97"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4572 11860 c0 -19 2 -27 5 -17 2 9 2 25 0 35 -3 9 -5 1 -5 -18z" class="svg-elem-98"></motion.path>
+                        }} d="M4572 11860 c0 -19 2 -27 5 -17 2 9 2 25 0 35 -3 9 -5 1 -5 -18z"  className="svg-elem-98"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3521 11849 c-6 -18 -9 -34 -7 -36 2 -2 9 10 15 28 6 18 9 34 7 36
--2 2 -9 -10 -15 -28z" class="svg-elem-99"></motion.path>
+-2 2 -9 -10 -15 -28z"  className="svg-elem-99"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3722 11840 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-100"></motion.path>
+                        }} d="M3722 11840 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-100"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5400 11857 c0 -2 35 -35 78 -73 42 -38 68 -58 57 -45 -24 28 -135
-125 -135 118z" class="svg-elem-101"></motion.path>
+125 -135 118z"  className="svg-elem-101"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
@@ -2006,1080 +1301,597 @@ l-3 -65 -13 43 c-12 36 -47 297 -44 319 1 5 0 17 -1 28 -1 11 -10 -32 -19 -95
 -148 -255 -2 2 6 39 18 81 24 89 21 108 -5 38 -20 -51 -55 -116 -61 -111 -2 2
 6 35 18 73 19 65 51 110 70 99 4 -3 8 1 8 8 0 7 14 33 31 58 93 138 132 259
 126 398 l-3 87 -2 -82z m210 -525 c26 -68 19 -84 -24 -54 -17 12 -22 26 -23
-66 -2 70 18 65 47 -12z" class="svg-elem-102"></motion.path>
+66 -2 70 18 65 47 -12z"  className="svg-elem-102"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3495 11770 c-4 -17 -5 -34 -2 -36 2 -3 7 10 11 27 8 42 0 50 -9 9z" class="svg-elem-103"></motion.path>
+                        }} d="M3495 11770 c-4 -17 -5 -34 -2 -36 2 -3 7 10 11 27 8 42 0 50 -9 9z"  className="svg-elem-103"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5585 11670 c10 -11 20 -20 23 -20 3 0 -3 9 -13 20 -10 11 -20 20
--23 20 -3 0 3 -9 13 -20z" class="svg-elem-104"></motion.path>
+-23 20 -3 0 3 -9 13 -20z"  className="svg-elem-104"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3456 11638 c-3 -13 -5 -32 -5 -43 1 -11 5 -2 10 19 10 42 6 62 -5
-24z" class="svg-elem-105"></motion.path>
+24z"  className="svg-elem-105"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4112 11605 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-106"></motion.path>
+                        }} d="M4112 11605 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-106"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5637 11624 c-3 -3 11 -27 30 -52 20 -26 48 -74 63 -107 23 -50 27
--55 26 -30 -1 19 -22 63 -55 113 -30 45 -55 82 -56 82 -1 0 -4 -3 -8 -6z" class="svg-elem-107"></motion.path>
+-55 26 -30 -1 19 -22 63 -55 113 -30 45 -55 82 -56 82 -1 0 -4 -3 -8 -6z"  className="svg-elem-107"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3151 11604 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-108"></motion.path>
+                        }} d="M3151 11604 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-108"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3993 11555 c0 -38 2 -53 4 -32 2 20 2 52 0 70 -2 17 -4 1 -4 -38z" class="svg-elem-109"></motion.path>
+                        }} d="M3993 11555 c0 -38 2 -53 4 -32 2 20 2 52 0 70 -2 17 -4 1 -4 -38z"  className="svg-elem-109"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3131 11523 c-6 -32 -13 -101 -16 -153 l-4 -95 9 85 c4 47 13 114 20
-149 14 79 7 92 -9 14z" class="svg-elem-110"></motion.path>
+149 14 79 7 92 -9 14z"  className="svg-elem-110"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3435 11505 c-4 -36 -5 -68 -3 -71 3 -2 8 25 12 62 4 37 5 69 2 71
--2 3 -7 -25 -11 -62z" class="svg-elem-111"></motion.path>
+-2 3 -7 -25 -11 -62z"  className="svg-elem-111"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5315 11503 c44 -44 198 -174 165 -139 -19 20 -69 65 -110 98 -41 34
--66 52 -55 41z" class="svg-elem-112"></motion.path>
+-66 52 -55 41z"  className="svg-elem-112"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5821 11510 c0 -8 4 -24 9 -35 5 -13 9 -14 9 -5 0 8 -4 24 -9 35 -5
-13 -9 14 -9 5z" class="svg-elem-113"></motion.path>
+13 -9 14 -9 5z"  className="svg-elem-113"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3977 11428 c-10 -83 -21 -102 -28 -53 -4 27 -5 14 -5 -37 1 -42 4
--71 7 -65 15 26 40 155 37 182 -2 22 -5 14 -11 -27z" class="svg-elem-114"></motion.path>
+-71 7 -65 15 26 40 155 37 182 -2 22 -5 14 -11 -27z"  className="svg-elem-114"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5103 11390 c0 -36 2 -50 4 -32 2 17 2 47 0 65 -2 17 -4 3 -4 -33z" class="svg-elem-115"></motion.path>
+                        }} d="M5103 11390 c0 -36 2 -50 4 -32 2 17 2 47 0 65 -2 17 -4 3 -4 -33z"  className="svg-elem-115"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5842 11415 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-116"></motion.path>
+                        }} d="M5842 11415 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-116"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3831 11369 c-12 -35 -21 -68 -20 -73 0 -6 11 20 25 58 13 38 22 71
-20 73 -2 2 -13 -24 -25 -58z" class="svg-elem-117"></motion.path>
+20 73 -2 2 -13 -24 -25 -58z"  className="svg-elem-117"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5760 11395 c0 -5 5 -17 10 -25 5 -8 10 -10 10 -5 0 6 -5 17 -10 25
--5 8 -10 11 -10 5z" class="svg-elem-118"></motion.path>
+-5 8 -10 11 -10 5z"  className="svg-elem-118"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3233 11300 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z" class="svg-elem-119"></motion.path>
+                        }} d="M3233 11300 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z"  className="svg-elem-119"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4550 11322 c0 -4 19 -6 43 -4 70 5 76 10 15 11 -32 0 -58 -2 -58 -7z" class="svg-elem-120"></motion.path>
+                        }} d="M4550 11322 c0 -4 19 -6 43 -4 70 5 76 10 15 11 -32 0 -58 -2 -58 -7z"  className="svg-elem-120"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3137 11265 c9 -101 23 -152 17 -62 -3 43 -9 88 -14 100 -5 14 -6 1
--3 -38z" class="svg-elem-121"></motion.path>
+-3 -38z"  className="svg-elem-121"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5087 11240 c-4 -47 -16 -128 -27 -180 -22 -108 -19 -135 3 -33 23
-100 39 223 35 263 -2 21 -6 1 -11 -50z" class="svg-elem-122"></motion.path>
+100 39 223 35 263 -2 21 -6 1 -11 -50z"  className="svg-elem-122"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4613 11303 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z" class="svg-elem-123"></motion.path>
+                        }} d="M4613 11303 c9 -2 23 -2 30 0 6 3 -1 5 -18 5 -16 0 -22 -2 -12 -5z"  className="svg-elem-123"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4558 11293 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z" class="svg-elem-124"></motion.path>
+                        }} d="M4558 11293 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z"  className="svg-elem-124"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3791 11249 c-6 -18 -11 -41 -10 -53 0 -12 6 2 14 29 15 57 13 72 -4
-24z" class="svg-elem-125"></motion.path>
+24z"  className="svg-elem-125"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3951 11223 c-17 -27 -31 -41 -31 -33 0 8 -14 -7 -30 -35 -17 -27
--38 -61 -47 -75 l-17 -25 23 20 c31 27 151 195 138 195 -2 0 -19 -21 -36 -47z" class="svg-elem-126"></motion.path>
+-38 -61 -47 -75 l-17 -25 23 20 c31 27 151 195 138 195 -2 0 -19 -21 -36 -47z"  className="svg-elem-126"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3926 11235 c-9 -26 -7 -32 5 -12 6 10 9 21 6 23 -2 3 -7 -2 -11 -11z" class="svg-elem-127"></motion.path>
+                        }} d="M3926 11235 c-9 -26 -7 -32 5 -12 6 10 9 21 6 23 -2 3 -7 -2 -11 -11z"  className="svg-elem-127"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3243 11205 c0 -22 2 -30 4 -17 2 12 2 30 0 40 -3 9 -5 -1 -4 -23z" class="svg-elem-128"></motion.path>
+                        }} d="M3243 11205 c0 -22 2 -30 4 -17 2 12 2 30 0 40 -3 9 -5 -1 -4 -23z"  className="svg-elem-128"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3123 11160 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z" class="svg-elem-129"></motion.path>
+                        }} d="M3123 11160 c0 -25 2 -35 4 -22 2 12 2 32 0 45 -2 12 -4 2 -4 -23z"  className="svg-elem-129"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3272 11170 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-130"></motion.path>
+                        }} d="M3272 11170 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-130"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5152 11122 c-2 -62 8 -64 46 -11 l25 34 -26 -27 c-14 -16 -28 -28
--31 -28 -3 0 -7 19 -9 43 -3 39 -4 39 -5 -11z" class="svg-elem-131"></motion.path>
+-31 -28 -3 0 -7 19 -9 43 -3 39 -4 39 -5 -11z"  className="svg-elem-131"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3252 11135 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-132"></motion.path>
+                        }} d="M3252 11135 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-132"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4305 11134 c-22 -8 -47 -22 -55 -31 -8 -8 -10 -13 -5 -11 18 7 90
-39 110 48 33 15 -6 10 -50 -6z" class="svg-elem-133"></motion.path>
+39 110 48 33 15 -6 10 -50 -6z"  className="svg-elem-133"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3282 11110 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-134"></motion.path>
+                        }} d="M3282 11110 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-134"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3053 11075 c0 -27 2 -38 4 -22 2 15 2 37 0 50 -2 12 -4 0 -4 -28z" class="svg-elem-135"></motion.path>
+                        }} d="M3053 11075 c0 -27 2 -38 4 -22 2 15 2 37 0 50 -2 12 -4 0 -4 -28z"  className="svg-elem-135"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3262 11070 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-136"></motion.path>
+                        }} d="M3262 11070 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-136"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4596 11065 c8 -37 14 -45 14 -19 0 10 -5 26 -10 34 -8 11 -9 7 -4
--15z" class="svg-elem-137"></motion.path>
+-15z"  className="svg-elem-137"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4507 11064 c-9 -10 2 -24 19 -24 8 0 14 7 14 15 0 15 -21 21 -33 9z" class="svg-elem-138"></motion.path>
+                        }} d="M4507 11064 c-9 -10 2 -24 19 -24 8 0 14 7 14 15 0 15 -21 21 -33 9z"  className="svg-elem-138"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4705 11033 c-15 -21 -44 -53 -64 -71 -45 -40 -11 -32 37 10 18 15
 39 28 47 28 8 0 15 5 15 11 0 5 -4 8 -9 4 -21 -12 -20 15 1 34 12 12 17 21 11
-21 -6 0 -23 -17 -38 -37z" class="svg-elem-139"></motion.path>
+21 -6 0 -23 -17 -38 -37z"  className="svg-elem-139"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5166 10995 c6 -76 22 -160 22 -115 0 14 -6 61 -13 105 l-14 80 5
--70z" class="svg-elem-140"></motion.path>
+-70z"  className="svg-elem-140"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5477 11043 c-3 -10 -9 -43 -12 -73 -4 -30 -13 -70 -21 -89 -16 -39
--17 -41 -6 -41 12 0 28 59 42 144 10 64 8 100 -3 59z" class="svg-elem-141"></motion.path>
+-17 -41 -6 -41 12 0 28 59 42 144 10 64 8 100 -3 59z"  className="svg-elem-141"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3061 10989 c0 -19 4 -52 9 -74 7 -31 7 -24 3 30 -6 74 -13 101 -12
-44z" class="svg-elem-142"></motion.path>
+44z"  className="svg-elem-142"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4180 11000 c-6 -11 -8 -20 -6 -20 3 0 10 9 16 20 6 11 8 20 6 20 -3
-0 -10 -9 -16 -20z" class="svg-elem-143"></motion.path>
+0 -10 -9 -16 -20z"  className="svg-elem-143"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3696 10984 c-3 -9 5 -29 19 -48 14 -18 25 -36 25 -39 0 -4 -22 -7
 -49 -7 -28 0 -53 -5 -57 -12 -5 -8 -2 -9 10 -5 10 4 40 7 68 7 l50 0 -23 38
-c-13 20 -26 38 -30 40 -4 2 -5 12 -2 22 6 24 -2 27 -11 4z" class="svg-elem-144"></motion.path>
+c-13 20 -26 38 -30 40 -4 2 -5 12 -2 22 6 24 -2 27 -11 4z"  className="svg-elem-144"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4537 10979 c-11 -6 -32 -9 -47 -7 -16 2 -27 1 -24 -4 9 -13 69 -9
-90 7 22 17 8 20 -19 4z" class="svg-elem-145"></motion.path>
+90 7 22 17 8 20 -19 4z"  className="svg-elem-145"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5564 10880 c0 -58 1 -81 3 -52 2 28 2 76 0 105 -2 28 -3 5 -3 -53z" class="svg-elem-146"></motion.path>
+                        }} d="M5564 10880 c0 -58 1 -81 3 -52 2 28 2 76 0 105 -2 28 -3 5 -3 -53z"  className="svg-elem-146"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5350 10943 c-9 -10 -16 -36 -16 -58 -1 -22 -11 -59 -23 -82 -11 -23
 -21 -55 -20 -70 1 -27 1 -27 12 7 6 19 25 58 42 85 36 57 48 85 37 85 -5 0
--13 -5 -20 -12 -9 -9 -12 -8 -12 6 0 9 5 26 10 37 13 24 9 24 -10 2z" class="svg-elem-147"></motion.path>
+-13 -5 -20 -12 -9 -9 -12 -8 -12 6 0 9 5 26 10 37 13 24 9 24 -10 2z"  className="svg-elem-147"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5031 10934 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z" class="svg-elem-148"></motion.path>
+                        }} d="M5031 10934 c0 -11 3 -14 6 -6 3 7 2 16 -1 19 -3 4 -6 -2 -5 -13z"  className="svg-elem-148"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5021 10899 c-1 -8 -12 -37 -25 -63 -23 -46 -44 -107 -32 -96 13 14
-67 153 62 163 -2 7 -5 5 -5 -4z" class="svg-elem-149"></motion.path>
+67 153 62 163 -2 7 -5 5 -5 -4z"  className="svg-elem-149"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5192 10825 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-150"></motion.path>
+                        }} d="M5192 10825 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-150"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3702 10775 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-151"></motion.path>
+                        }} d="M3702 10775 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-151"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3734 10779 c-10 -17 13 -36 27 -22 12 12 4 33 -11 33 -5 0 -12 -5
--16 -11z" class="svg-elem-152"></motion.path>
+-16 -11z"  className="svg-elem-152"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5202 10770 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-153"></motion.path>
+                        }} d="M5202 10770 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-153"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4868 10733 c-2 -27 -1 -73 2 -103 6 -47 7 -40 9 48 1 108 -4 133
--11 55z" class="svg-elem-154"></motion.path>
+-11 55z"  className="svg-elem-154"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5113 10695 c0 -44 2 -61 4 -37 2 23 2 59 0 80 -2 20 -4 1 -4 -43z" class="svg-elem-155"></motion.path>
+                        }} d="M5113 10695 c0 -44 2 -61 4 -37 2 23 2 59 0 80 -2 20 -4 1 -4 -43z"  className="svg-elem-155"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5552 10750 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z" class="svg-elem-156"></motion.path>
+                        }} d="M5552 10750 c0 -14 2 -19 5 -12 2 6 2 18 0 25 -3 6 -5 1 -5 -13z"  className="svg-elem-156"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3728 10723 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z" class="svg-elem-157"></motion.path>
+                        }} d="M3728 10723 c6 -2 18 -2 25 0 6 3 1 5 -13 5 -14 0 -19 -2 -12 -5z"  className="svg-elem-157"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4833 10665 c0 -33 2 -45 4 -27 2 18 2 45 0 60 -2 15 -4 0 -4 -33z" class="svg-elem-158"></motion.path>
+                        }} d="M4833 10665 c0 -33 2 -45 4 -27 2 18 2 45 0 60 -2 15 -4 0 -4 -33z"  className="svg-elem-158"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M3679 10647 c5 -5 28 -7 52 -5 l44 3 -52 5 c-29 3 -48 1 -44 -3z" class="svg-elem-159"></motion.path>
+                        }} d="M3679 10647 c5 -5 28 -7 52 -5 l44 3 -52 5 c-29 3 -48 1 -44 -3z"  className="svg-elem-159"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5461 10653 c-1 -6 -4 -20 -7 -30 -5 -17 -5 -17 6 0 6 10 9 23 6 30
--3 9 -5 9 -5 0z" class="svg-elem-160"></motion.path>
+-3 9 -5 9 -5 0z"  className="svg-elem-160"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M5413 10544 c-17 -30 -27 -52 -22 -49 11 8 63 95 58 99 -2 2 -18 -21
--36 -50z" class="svg-elem-161"></motion.path>
+-36 -50z"  className="svg-elem-161"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4842 10565 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z" class="svg-elem-162"></motion.path>
+                        }} d="M4842 10565 c0 -16 2 -22 5 -12 2 9 2 23 0 30 -3 6 -5 -1 -5 -18z"  className="svg-elem-162"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4857 10475 c2 -27 8 -88 12 -135 8 -79 8 -81 10 -26 l1 59 18 -24
 c10 -13 27 -40 38 -59 10 -19 30 -46 43 -60 l24 -25 -20 30 c-44 70 -74 137
--92 211 -11 44 -20 70 -21 59 l-1 -20 -9 20 c-5 13 -7 2 -3 -30z" class="svg-elem-163"></motion.path>
+-92 211 -11 44 -20 70 -21 59 l-1 -20 -9 20 c-5 13 -7 2 -3 -30z"  className="svg-elem-163"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M3878 10404 c16 -30 72 -75 72 -57 0 4 -19 23 -41 42 -26 22 -38 27
--31 15z" class="svg-elem-164"></motion.path>
+-31 15z"  className="svg-elem-164"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4040 10390 c0 -12 8 -12 35 0 18 8 17 9 -7 9 -16 1 -28 -3 -28 -9z" class="svg-elem-165"></motion.path>
+                        }} d="M4040 10390 c0 -12 8 -12 35 0 18 8 17 9 -7 9 -16 1 -28 -3 -28 -9z"  className="svg-elem-165"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M5122 10285 l1 -90 9 69 c6 46 6 76 -1 90 -7 16 -9 -1 -9 -69z" class="svg-elem-166"></motion.path>
+                        }} d="M5122 10285 l1 -90 9 69 c6 46 6 76 -1 90 -7 16 -9 -1 -9 -69z"  className="svg-elem-166"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4873 10215 c0 -22 2 -30 4 -17 2 12 2 30 0 40 -3 9 -5 -1 -4 -23z" class="svg-elem-167"></motion.path>
+                        }} d="M4873 10215 c0 -22 2 -30 4 -17 2 12 2 30 0 40 -3 9 -5 -1 -4 -23z"  className="svg-elem-167"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4425 10204 c-11 -8 -37 -20 -57 -26 -21 -6 -38 -15 -38 -19 0 -5 11
--4 25 1 37 14 105 50 105 55 0 9 -15 4 -35 -11z" class="svg-elem-168"></motion.path>
+-4 25 1 37 14 105 50 105 55 0 9 -15 4 -35 -11z"  className="svg-elem-168"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4188 10133 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z" class="svg-elem-169"></motion.path>
+                        }} d="M4188 10133 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z"  className="svg-elem-169"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
                         }} d="M4072 10105 c-52 -18 -59 -24 -40 -28 24 -6 146 8 156 17 3 4 -16 3
--41 0 -55 -8 -61 1 -14 21 51 22 9 15 -61 -10z" class="svg-elem-170"></motion.path>
+-41 0 -55 -8 -61 1 -14 21 51 22 9 15 -61 -10z"  className="svg-elem-170"></motion.path>
                     <motion.path
                         fill="none"
                         strokeWidth="5"
-                        stroke="white"
+                        stroke="green"
                         strokeDasharray="0 1"
                         style={{
                             pathLength
-                        }}
-                        fill="none"
-                        strokeWidth="5"
-                        stroke="white"
-                        strokeDasharray="0 1"
-                        style={{
-                            pathLength
-                        }} d="M4940 9850 c0 -8 7 -37 15 -65 l14 -50 -6 50 c-5 50 -22 98 -23 65z" class="svg-elem-171"></motion.path>
+                        }} d="M4940 9850 c0 -8 7 -37 15 -65 l14 -50 -6 50 c-5 50 -22 98 -23 65z"  className="svg-elem-171"></motion.path>
                 </motion.g>
             </svg>
         </div>

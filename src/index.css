@@ -4,7 +4,7 @@
 
 :root {
   --black: rgb(12, 12, 12);
-  --purple: rgb(131, 114, 206);
+  --purple: blue;
   --white: #fff;
   --lightwhite: rgb(220, 226, 235);
   --mono: 'Roboto Mono', monospace;
