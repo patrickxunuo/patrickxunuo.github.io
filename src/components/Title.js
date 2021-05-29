@@ -66,6 +66,7 @@ const Title = ({ item }) => {
                     </div>
                 }
             </motion.div>
+            <div className="space-block" />
         </motion>
     )
 }

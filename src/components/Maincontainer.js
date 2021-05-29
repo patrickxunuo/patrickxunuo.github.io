@@ -1,5 +1,8 @@
 import React from 'react'
 import Title from './Title.js'
+import SvgSaitama from './SvgSaitama.js'
+import SvgMakima from './SvgMakima.js'
+import { Parallax, Background } from "react-parallax";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion"
 
 export const Maincontainer = () => {
@@ -58,10 +61,13 @@ export const Maincontainer = () => {
                 <div className="the-ball" />
                 <div className="the-line" />
             </div>
+            <Parallax strength={500}>
+                <SvgSaitama />
+                <SvgMakima />
+            </Parallax>
             <AnimateSharedLayout type="crossfade">
-            {items.map((item) => (<Title item={item} />))}
+                {items.map((item) => (<Title item={item} />))}
             </AnimateSharedLayout>
-
         </div>
     )
 }
