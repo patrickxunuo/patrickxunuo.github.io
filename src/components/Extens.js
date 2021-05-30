@@ -8,12 +8,12 @@ export const Extens = (props) => {
     const [projectState, setProjecState] = useState(1);
 
     const internSelect = {
-        open: { background: "var(--purple)", color: "var(--white)" },
-        closed: { background: "var(--black)", color: "var(--purple)" }
+        open: { background: "grey", color: "var(--white)" },
+        closed: { background: "var(--white)", color: "var(--black)" }
     }
     const projectSelect = {
-        open: { background: "var(--purple)", color: "var(--white)" },
-        closed: { background: "var(--black)", color: "var(--purple)" }
+        open: { background: "grey", color: "var(--white)" },
+        closed: { background: "var(--white)", color: "var(--black)" }
     }
 
 
@@ -42,7 +42,7 @@ export const Extens = (props) => {
                         </motion.label>
                     </div>
                     {internState === 1 && <ul className="intern-des intern-1" >
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             May - Dec 2019 Beijing, China
                         </li>
                         <li>
@@ -60,7 +60,7 @@ export const Extens = (props) => {
                         </li>
                     </ul>}
                     {internState === 2 && <ul className="intern-des intern-2">
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             Jan - Dec 2018 Vancouver, Canada
                         </li>
                         <li>
@@ -113,7 +113,7 @@ export const Extens = (props) => {
                         </motion.label>
                     </div>
                     {projectState === 1 && <ul className="project-des project-1" >
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             Object, Key and Results Portal
                         </li>
                         <li>
@@ -130,7 +130,7 @@ export const Extens = (props) => {
                         </li>
                     </ul>}
                     {projectState === 2 && <ul className="project-des project-2">
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             Approval System Solution
                         </li>
                         <li>
@@ -146,7 +146,7 @@ export const Extens = (props) => {
                         </li>
                     </ul>}
                     {projectState === 3 && <ul className="project-des project-3">
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             Handwriting Recognition Application
                         </li>
                         <li>
@@ -161,7 +161,7 @@ export const Extens = (props) => {
                         </li>
                     </ul>}
                     {projectState === 4 && <ul className="project-des project-4">
-                        <li style={{ color: "var(--purple)" }}>
+                        <li style={{ color: "grey" }}>
                             <a href="http://patrickxunuo.great-site.net/" style={{color:"var(--white)"}} target="_blank" rel="noreferrer">First Personal Website</a>
                         </li>
                    

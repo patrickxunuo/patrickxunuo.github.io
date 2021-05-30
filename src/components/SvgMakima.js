@@ -13,6 +13,18 @@ export const SvgMakima = () => {
     const [offsetY, setOffSetY] = useState(0)
     const handleScroll = () => setOffSetY(window.pageYOffset)
    
+    const makimaShow = {
+        hidden: {
+            opacity: 0,
+            pathLength: 0
+        },
+        visible: {
+            opacity: 1,
+            pathLength: 1
+        }
+    };
+
+
     useEffect(() => {
       window.addEventListener("scroll", handleScroll)
 
@@ -21,9 +33,16 @@ export const SvgMakima = () => {
 
     return (
         <div className="svg-container" style={{textAlign:"end"}}>
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
+            <motion.svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
             style={{minWidth:"800px",width:"40%", height:"40%", transform:`translateX(${offsetY * 0.05}px)`}}
-             viewBox="0 0 927.000000 1401.000000" preserveAspectRatio="xMidYMid meet">
+             viewBox="0 0 927.000000 1401.000000" preserveAspectRatio="xMidYMid meet"
+             variants={makimaShow}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{
+                        default: { duration: 2, ease: "easeInOut" },
+                        fill: { duration: 2, ease: [1, 0, 0.8, 1] }
+                    }}>
                 <motion.g transform="translate(0.000000,1401.000000) scale(0.100000,-0.100000)">
                     <motion.path
                         fill="none"
@@ -1893,7 +1912,7 @@ c10 -13 27 -40 38 -59 10 -19 30 -46 43 -60 l24 -25 -20 30 c-44 70 -74 137
                             pathLength
                         }} d="M4940 9850 c0 -8 7 -37 15 -65 l14 -50 -6 50 c-5 50 -22 98 -23 65z"  className="svg-elem-171"></motion.path>
                 </motion.g>
-            </svg>
+            </motion.svg>
         </div>
     )
 }

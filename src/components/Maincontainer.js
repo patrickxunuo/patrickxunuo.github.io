@@ -1,5 +1,6 @@
 import React from 'react'
 import Title from './Title.js'
+import Theline from './Theline.js'
 import { AnimateSharedLayout} from "framer-motion"
 
 export const Maincontainer = () => {
@@ -54,10 +55,7 @@ export const Maincontainer = () => {
 
     return (
         <div className="main-container">
-            <div className="ball-line">
-                <div className="the-ball" />
-                <div className="the-line" />
-            </div>
+            <Theline />
             <AnimateSharedLayout type="crossfade">
                 {items.map((item) => (<Title item={item} />))}
             </AnimateSharedLayout>

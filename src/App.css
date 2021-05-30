@@ -21,9 +21,9 @@ header {
   position: fixed;
   top: 0;
   padding-top: 1em;
-  background-color: var(--black);
+  background-color: var(--white);
   z-index: 99;
-  box-shadow: 0 1em 1em 1em var(--black);
+  box-shadow: 0 1em 1em 1em var(--white);
   width: 100%;
   padding-left: 1em;
   padding-right: 1em;
@@ -44,7 +44,7 @@ header {
   position: relative;
   display: block;
   top: -0.5em;
-  color: var(--purple);
+  color: var(--black);
   justify-self: flex-start;
 }
 
@@ -70,14 +70,16 @@ li .fa {
   font-size: 1.25rem;
   margin: 0 0.75em;
 }
-
+.fa:hover {
+  color:grey !important;
+}
 nav a {
-  color: rgb(220, 226, 235);
+  color: var(--black);
   transition: 0.5s ease;
 }
 
-nav ul li:hover>a {
-  color: var(--purple);
+nav ul li a:hover{
+  color: grey;
 }
 
 .nav-toggle {
@@ -118,7 +120,7 @@ nav ul li:hover>a {
   width: 0.625em;
   height: 0.625em;
   border-radius: 100%;
-  background: var(--purple);
+  background: var(--black);
   box-shadow: none;
   transition: 1s ease;
   z-index: 999;
@@ -131,11 +133,19 @@ nav ul li:hover>a {
   position: fixed;
   width: 0.0625em;
   min-height: 100vh;
-  background: linear-gradient(var(--purple), var(--black));
+  background: var(--black);
   margin-left: 4px;
   z-index: 99;
 }
-
+.the-line-move {
+  display: block;
+  position: fixed;
+  width: 0.0625em;
+  min-height: 100vh;
+  background: linear-gradient(white, var(--black));
+  margin-left: 4px;
+  z-index: 98;
+}
 /* title */
 
 .title {
@@ -149,10 +159,11 @@ nav ul li:hover>a {
   background-size: cover;
   max-height: 90vh;
   overflow-y: auto;
+  background: var(--white);
 }
 
 .title-canvas {
-  background-color: var(--black);
+  background-color: var(--white);
   width: 10000px;
   height: 10000px;
   display: none;
@@ -177,11 +188,11 @@ nav ul li:hover>a {
 }
 
 .title .span-1 {
-  color: rgb(220, 226, 235);
+  color: var(--black);
 }
 
 .title .span-2 {
-  color: var(--purple);
+  color: var(--black);
 }
 
 .title-item {
@@ -191,7 +202,7 @@ nav ul li:hover>a {
 .title-location, .title-time {
   display: inline-block;
   font-size: 1.25em;
-  color: var(--purple);
+  color: var(--black);
 }
 
 .title-what {
@@ -204,7 +215,7 @@ nav ul li:hover>a {
   font-family: var(--mono);
   font-size: 1.25em;
   border: none;
-  color: #682ae9;
+  color: grey;
   cursor: pointer;
   margin: 1em;
   transition: 0.3s ease;
@@ -212,22 +223,22 @@ nav ul li:hover>a {
 
 .title-arrow-more, .title-arrow-back {
   position: relative;
-  color: #682ae9;
+  color: grey;
   transition: 0.5s ease;
 }
 
 .more-btn:hover {
-  color: var(--white);
+  color: var(--black);
 }
 
 .more-btn:hover~.title-arrow-more {
   animation: 0.5s bounce-more ease-in-out infinite;
-  color: var(--white);
+  color: var(--black);
 }
 
 .more-btn:hover~.title-arrow-back {
   animation: 0.5s bounce-back ease-in-out infinite;
-  color: var(--white);
+  color: var(--black);
 }
 
 .space-block {
@@ -238,7 +249,6 @@ nav ul li:hover>a {
 
 /* intern description */
 .intern-des, .project-des {
-  color: var(--lightwhite);
   font-size: 1.5em;
   list-style-type: none;
   width: 80%;
@@ -257,21 +267,21 @@ footer {
 }
 
 footer p {
-  color: lightsteelblue;
+  color: var(--black);
   font-size: 1.25em;
 }
 
 /* fa */
 
 .fa {
-  color: var(--purple);
+  color: var(--black);
   font-size: 1.5em;
   margin: 0 1.25em;
   transition: 0.5s ease;
 }
 
 .fa:hover {
-  color: var(--white);
+  color: var(--black);
 }
 
 /* form */
@@ -282,7 +292,7 @@ form {
   grid-template-rows: 1fr 1fr 2fr 1fr;
   border-radius: 1em;
   font-size: 1.5em;
-  color: var(--purple)
+  color: var(--black)
 }
 
 .form-item {
@@ -296,7 +306,7 @@ form {
   border: none;
   outline: none;
   border-radius: 0.5em;
-  background: cyan;
+  background: silver;
   font-family: var(--mono);
   font-size: 1em;
   justify-content: start;
@@ -331,9 +341,10 @@ form {
 #form-submit {
   display: block;
   position: relative;
-  width: 70%;
-  margin: 0 auto;
-  background: var(--purple);
+  width: 50%;
+  margin: 1em auto;
+  background: var(--black);
+  color: #fff;
   text-align: center;
   font-size: 1em;
   cursor: pointer;
@@ -353,13 +364,13 @@ form {
   font-size: 1em;
   margin: 0 1em;
   padding: 1em;
-  color: var(--white);
+  color: var(--black);
   border-radius: 0.5em;
   cursor: pointer;
   display: -webkit-inline-box;
 }
 #form-submit:hover {
-  background: var(--white);
+  background: var(--black);
 }
 
 @media (max-width: 800px) {
@@ -420,7 +431,7 @@ form {
   .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
     position: relative;
     display: block;
-    background: var(--white);
+    background: var(--black);
     width: 3px;
     height: 3px;
     border-radius: 1.5px;
@@ -503,7 +514,7 @@ form {
     box-shadow: none;
   }
   50% {
-    box-shadow: 0px 0px 15px 10px rgba(131, 114, 206, 0.8);
+    box-shadow: 0px 0px 15px 10px var(--black);
   }
   100% {
     box-shadow: none;
@@ -527,7 +538,7 @@ form {
     overflow-x: hidden;
 }
 .svg-container {
-  background: var(--black);
+  background: var(--white);
   position: relative;
   display: block;
 }

@@ -14,8 +14,9 @@ const Theline = (props) => {
 
     return (
         <div className="ball-line">
-            <div className="the-ball" style={{transform:`translateY(${offsetY * 10}px)`}} />
+            <div className="the-ball" />
             <div className="the-line" />
+            <div className="the-line the-line-move" style={{transform:`translateY(${offsetY * -0.2}px)`}} />
         </div>
     )
 }
