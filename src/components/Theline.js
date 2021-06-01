@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 const Theline = (props) => {
     const [offsetY, setOffSetY] = useState(0)
     const handleScroll = () => {
-        console.log(window.pageYOffset)
         setOffSetY(window.pageYOffset)
     }
  

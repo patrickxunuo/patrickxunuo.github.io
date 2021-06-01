@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { motion } from "framer-motion"
-import Logosvg from './svg/logo.svg';
 
 export const Header = () => {
-
+    const [navState, setNavState] = useState(false)
     const logoSvg = {
         hidden: {
             opacity: 0,
@@ -14,30 +13,27 @@ export const Header = () => {
             opacity: 1,
             pathLength: 1
         }
-    };
+    }
 
+    const toggleState = () => {
+        if (navState === false) document.getElementById("nav-toggle").checked = false;
+        if (navState === true) document.getElementById("nav-toggle").checked = true;
+        setNavState(!navState)
+    }
 
     return (
         <header>
-            <div className="header-logo">
-                <motion.img
-                    viewBox="0 0 100 100"
-                    src={Logosvg}
-                    className="logo-svg" variants={logoSvg}
-                    initial="hidden"
-                    animate="visible"
-                    transition={{
-                        default: { duration: 2, ease: "easeInOut" },
-                        fill: { duration: 2, ease: [1, 0, 0.8, 1] }
-                    }}
-                />
+            <div className="header-wrap">
+                <div className="header-logo">
+                    <blink id="blink-logo">Pat</blink>
+                </div>
+                <input type="checkbox" id="nav-toggle" className="nav-toggle" onClick={() => setNavState(!navState)} />
+                <Navbar toggleState={toggleState} />
+                <label htmlFor="nav-toggle" className="nav-toggle-label">
+                    <span></span>
+                </label>
+                <div className="nav-canvas"></div>
             </div>
-            <input type="checkbox" id="nav-toggle" className="nav-toggle" />
-            <Navbar />
-            <label htmlFor="nav-toggle" className="nav-toggle-label">
-                <span></span>
-            </label>
-            <div className="nav-canvas"></div>
         </header>
     )
 }

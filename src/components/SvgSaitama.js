@@ -30,7 +30,7 @@ export const SvgSaitama = () => {
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -89,7 +89,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -99,7 +99,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -110,7 +110,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -119,7 +119,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -129,7 +129,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -138,7 +138,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -147,7 +147,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -158,7 +158,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -167,7 +167,7 @@ m-491 -2048 c114 -30 172 -102 172 -215 0 -95 -30 -162 -109 -242 -56 -57 -76
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -177,7 +177,7 @@ l-81 -138 17 -62 16 -62 5 90 c6 88 7 92 63 185 65 107 136 250 161 325 20 64
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -188,7 +188,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -197,7 +197,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -206,7 +206,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -223,7 +223,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -235,7 +235,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -244,7 +244,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -253,7 +253,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -264,7 +264,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -274,7 +274,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -285,7 +285,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -294,7 +294,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -303,7 +303,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -312,7 +312,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -321,7 +321,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -332,7 +332,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -342,7 +342,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -353,7 +353,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -362,7 +362,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -371,7 +371,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength
@@ -379,7 +379,7 @@ c181 -38 340 -143 340 -223 0 -33 -83 -101 -148 -119 -195 -57 -423 99 -397
                     <motion.path 
                     fill="none"
                     strokeWidth="5"
-                    stroke="cyan"
+                    stroke="maroon"
                     strokeDasharray="0 1"
                     style={{
                       pathLength

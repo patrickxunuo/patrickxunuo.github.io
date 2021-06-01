@@ -1,28 +1,68 @@
 import React, { useState } from 'react'
-import ContactForm from './ContactForm'
-import { motion } from "framer-motion"
+import ContactForm from './ContactForm.js'
+import { motion } from 'framer-motion'
 
-export const Extens = (props) => {
-
+const TitleExpand = (props) => {
+    const item = props.item
+    const rect = props.rect
     const [internState, setInternState] = useState(1);
     const [projectState, setProjecState] = useState(1);
 
     const internSelect = {
-        open: { background: "grey", color: "var(--white)" },
+        open: { background: "rgba(128, 128, 128,1)", color: "var(--white)" },
         closed: { background: "var(--grain)", color: "var(--black)" }
     }
     const projectSelect = {
-        open: { background: "grey", color: "var(--white)" },
+        open: { background: "rgba(128, 128, 128,1)", color: "var(--white)" },
         closed: { background: "var(--grain)", color: "var(--black)" }
     }
 
-
-    let inside = (<></>)
-    switch (props.identifier) {
-        case 'internship':
-            inside =
-                <motion.div className="intern-wrap">
-                    <div className="inter-picker-wrap">
+    return (
+        <>
+            <motion.div className="title-expand" style={{ top: rect[0], left: rect[2] }}
+                animate={{
+                    scale: 1.5,
+                    top: "10%",
+                    left: "50%",
+                    translateX: "-50%",
+                    translateY: "-50%",
+                    transition: { duration: 1, ease: "easeInOut" },
+                }} exit={{
+                    opacity: 0,
+                    y: '-10vh',
+                    transition: { ease: "easeInOut" }
+                }}>
+                <span className="span-1">patxu.</span>
+                <span className="span-2">{item.content}</span>
+            </motion.div>
+            <motion.div className="expand-line"
+                initial={{
+                    opacity: 0
+                }}
+                animate={{
+                    opacity: 0.5,
+                    transition: { delay: 1, duration: 1, ease: "easeInOut" },
+                }} exit={{
+                    opacity: 0,
+                    y: '-10vh',
+                    transition: { ease: "easeInOut" }
+                }}></motion.div>
+            {item.content === "contact" &&
+                <ContactForm />}
+            {item.content === "internship" &&
+                <motion.div className="intern-wrap" initial={{
+                    opacity: 0
+                }}
+                    animate={{
+                        opacity: 1,
+                        transition: { delay: 1, duration: 1, ease: "easeInOut" }
+                    }}
+                    exit={{
+                        opacity: 0,
+                        y: '+10vh',
+                        transition: { ease: "easeInOut" }
+                    }}>
+                    <div className="intern-picker-wrap">
                         <input type="radio" id="intern-1" onClick={() => {
                             setInternState(1)
                         }} />
@@ -70,11 +110,21 @@ export const Extens = (props) => {
                             ● Organized and coached robotic competitions
                         </li>
                     </ul>}
-                </motion.div>
-            break
-        case 'project':
-            inside =
-                <motion.div className="project-wrap">
+                </motion.div>}
+
+            {item.content === "project" &&
+                <motion.div className="project-wrap" initial={{
+                    opacity: 0
+                }}
+                    animate={{
+                        opacity: 1,
+                        transition: { delay: 1, duration: 1, ease: "easeInOut" }
+                    }}
+                    exit={{
+                        opacity: 0,
+                        y: '+10vh',
+                        transition: { ease: "easeInOut" }
+                    }}>
                     <div className="project-picker-wrap">
                         <input type="radio" id="project-1" onClick={() => {
                             setProjecState(1)
@@ -162,26 +212,15 @@ export const Extens = (props) => {
                     </ul>}
                     {projectState === 4 && <ul className="project-des project-4">
                         <li style={{ color: "grey" }}>
-                            <a href="http://patrickxunuo.great-site.net/" style={{color:"var(--black)"}} target="_blank" rel="noreferrer">First Personal Website</a>
+                            <a href="http://patrickxunuo.great-site.net/" style={{ color: "var(--black)" }} target="_blank" rel="noreferrer">First Personal Website</a>
                         </li>
-                   
-                    </ul>}
-                </motion.div>
-            break
-        case 'contact':
-            inside = <ContactForm />
-            break
-        default:
-            inside = <></>
-    }
 
-    return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-            {inside}
-        </motion.div>
+                    </ul>}
+                </motion.div>}
+
+
+        </>
     )
 }
-export default Extens
+
+export default TitleExpand
