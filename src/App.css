@@ -4,10 +4,13 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  /* font-family: "Source Sans Pro", sans-serif; */
+  font-family: var(--mono);
 }
 
 a {
   text-decoration: none;
+  color: var(--black)
 }
 
 .a-block {
@@ -99,6 +102,64 @@ nav ul li a:hover {
   margin-bottom: 450px;
 }
 
+/* landing page */
+
+.landing-page {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.landing-text h1 {
+  font-size: 3rem;
+  display: block;
+  position: relative;
+  width: auto;
+  font-weight: lighter;
+  user-select: none;
+}
+
+.landing-text h1::before, .landing-text h1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.landing-text h1::before {
+  animation: typeBlink 5s steps(var(--typeStep)) forwards 1s;
+  background: var(--grain);
+  background-image: url('./components/svg/filtergrain.png');
+}
+
+.landing-text h1::after {
+  width: 0.125rem;
+  background: var(--black);
+  animation: typeBlink 5s steps(var(--typeStep)) forwards 1s, typeFlash 1s infinite;
+}
+
+.landing-button {
+  display: flex;
+  font-size: 1.25em;
+  width: 5em;
+  height: 5em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1.5px var(--black) solid;
+  transition: 0.5s ease;
+  box-shadow: 0 0 5px 1px transparent;
+}
+.landing-button:hover {
+  box-shadow: 0 0 5px 1px black;
+}
 /* not related container */
 
 .notrelated-container {
@@ -126,7 +187,6 @@ nav ul li a:hover {
   box-shadow: none;
   transition: 1s ease;
   z-index: 999;
-  animation: 3.0s ballgradient ease-in-out infinite;
 }
 
 .the-line {
@@ -181,7 +241,7 @@ nav ul li a:hover {
   padding: 1em;
   margin-bottom: 2em;
   box-shadow: none;
-  border-radius: none;
+  border-radius: 0;
 }
 
 .span-1, .span-2 {
@@ -274,7 +334,6 @@ nav ul li a:hover {
 }
 
 blink {
-  font-family: 'Audiowide', cursive;
   color: var(--black);
 }
 
@@ -477,6 +536,9 @@ form {
     display: flex;
     align-items: center;
     z-index: 999999;
+    width: 2em;
+    height: 2em;
+    justify-content: flex-end;
   }
   .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
     position: relative;
@@ -556,6 +618,9 @@ form {
   .project-picker, .intern-picker {
     margin: 2px 1em;
   }
+  .landing-text h1 {
+    font-size: 1em;
+  }
 }
 
 /* animation keyframe */
@@ -578,15 +643,15 @@ form {
   }
 }
 
-@keyframes ballgradient {
-  0% {
-    box-shadow: none;
+@keyframes typeBlink {
+  to {
+    left: 100%;
   }
-  50% {
-    box-shadow: 0px 0px 40px 10px var(--black);
-  }
-  100% {
-    box-shadow: none;
+}
+
+@keyframes typeFlash {
+  to {
+    background: transparent;
   }
 }
 

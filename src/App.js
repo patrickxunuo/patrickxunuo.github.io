@@ -2,16 +2,18 @@ import React from 'react'
 import './App.css';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
+import Landing from './components/Landing.js'
 import BackgroundSvg from './components/BackgroundSvg.js'
 import Maincontainer from './components/Maincontainer.js'
-import TitleExpandFormat from './components/TitleExpandFormat.js';
-import NotRelated from './components/NotRelated.js';
-import { AnimatePresence, motion } from 'framer-motion';
-import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom";
+import TitleExpandFormat from './components/TitleExpandFormat.js'
+import NotRelated from './components/NotRelated.js'
+import { AnimatePresence, motion } from 'framer-motion'
+import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
 
 
 function App() {
   const location = useLocation()
+
   const homeVariants = {
     hidden: {
       opacity: 0
@@ -45,10 +47,21 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <AnimatePresence>
+
         <Switch location={location} key={location.key}>
+      <Header />
           <Route exact path="/">
+            <motion.div variants={homeVariants}
+              initial="visible"
+              exit="exit"
+              className="landing-page"
+            >
+              <Landing />
+            </motion.div>
+            <Footer />
+          </Route>
+          <Route exact path="/home">
             <motion.div variants={homeVariants}
               initial="hidden"
               animate="visible"
@@ -59,6 +72,7 @@ function App() {
             </motion.div>
             <Footer />
           </Route>
+
           <Route exact path="/notrelated">
             <motion.div variants={notrelateVariants}
               initial="hidden"
@@ -70,15 +84,17 @@ function App() {
           </Route>
 
           <Route path="/internship">
-              <TitleExpandFormat />
+            <TitleExpandFormat />
             <Footer />
           </Route>
+
           <Route path="/project">
-              <TitleExpandFormat />
+            <TitleExpandFormat />
             <Footer />
           </Route>
+
           <Route path="/contact">
-              <TitleExpandFormat />
+            <TitleExpandFormat />
             <Footer />
           </Route>
         </Switch>

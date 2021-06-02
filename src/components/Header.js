@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
-import { motion } from "framer-motion"
+import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom";
 
 export const Header = () => {
-    const [navState, setNavState] = useState(false)
-    const logoSvg = {
-        hidden: {
-            opacity: 0,
-            pathLength: 0
-        },
-        visible: {
-            opacity: 1,
-            pathLength: 1
-        }
+    const location = useLocation()
+    const pathname = location.pathname
+    let headerDis = "block"
+    if (pathname === "/") {
+        headerDis = "none"
     }
+
+    const [navState, setNavState] = useState(false)
 
     const toggleState = () => {
         if (navState === false) document.getElementById("nav-toggle").checked = false;
@@ -22,7 +19,7 @@ export const Header = () => {
     }
 
     return (
-        <header>
+        <header style={{ display: headerDis }}>
             <div className="header-wrap">
                 <div className="header-logo">
                     <blink id="blink-logo">Pat</blink>
