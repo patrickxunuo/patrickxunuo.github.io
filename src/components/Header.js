@@ -5,10 +5,6 @@ import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom";
 export const Header = () => {
     const location = useLocation()
     const pathname = location.pathname
-    let headerDis = "block"
-    if (pathname === "/") {
-        headerDis = "none"
-    }
 
     const [navState, setNavState] = useState(false)
 
@@ -19,13 +15,13 @@ export const Header = () => {
     }
 
     return (
-        <header style={{ display: headerDis }}>
+        <header>
             <div className="header-wrap">
                 <div className="header-logo">
-                    <blink id="blink-logo">Pat</blink>
+                    <a id="blink-logo">Pat</a>
                 </div>
                 <input type="checkbox" id="nav-toggle" className="nav-toggle" onClick={() => setNavState(!navState)} />
-                <Navbar toggleState={toggleState} />
+                <Navbar toggleState={toggleState} pathname={pathname} />
                 <label htmlFor="nav-toggle" className="nav-toggle-label">
                     <span></span>
                 </label>

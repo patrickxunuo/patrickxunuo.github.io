@@ -1,104 +1,48 @@
-import React from 'react'
-import './App.css';
-import Header from './components/Header.js'
-import Footer from './components/Footer.js'
-import Landing from './components/Landing.js'
-import BackgroundSvg from './components/BackgroundSvg.js'
-import Maincontainer from './components/Maincontainer.js'
-import TitleExpandFormat from './components/TitleExpandFormat.js'
-import NotRelated from './components/NotRelated.js'
-import { AnimatePresence, motion } from 'framer-motion'
+import React, { useState } from 'react'
+import './App.css'
+import Landing from './pages/Landing.js'
+import Home from './pages/Home.js'
+import NotRelated from './pages/NotRelated'
+import TitleExpandFormat from './components/TitleExpandFormat'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
+import { motion, AnimatePresence } from 'framer-motion'
 
 
 function App() {
   const location = useLocation()
 
-  const homeVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 2, ease: "easeInOut" }
-    },
-    exit: {
-      opacity: 0,
-      y: '+10vh',
-      transition: { ease: "easeInOut" }
-    }
-  }
-  const notrelateVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 2, ease: "easeInOut" }
-    },
-    exit: {
-      opacity: 0,
-      y: '+10vh',
-      transition: { ease: "easeInOut" }
-    }
+  let initialpage = "landing"
+  if (location.pathname!=="/")
+  initialpage = "home"
+
+  const [pageState, setPageState] = useState(initialpage)
+
+  const changePageState = (newPageState) => {
+    setPageState(newPageState)
   }
 
   return (
     <div className="App">
+      {pageState !== "landing" && <Header />}
       <AnimatePresence>
-
         <Switch location={location} key={location.key}>
-      <Header />
           <Route exact path="/">
-            <motion.div variants={homeVariants}
-              initial="visible"
-              exit="exit"
-              className="landing-page"
-            >
-              <Landing />
-            </motion.div>
-            <Footer />
+            <Landing changepage={changePageState} />
           </Route>
           <Route exact path="/home">
-            <motion.div variants={homeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <BackgroundSvg />
-              <Maincontainer />
-            </motion.div>
-            <Footer />
+            <Home />
           </Route>
-
           <Route exact path="/notrelated">
-            <motion.div variants={notrelateVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit">
-              <NotRelated />
-            </motion.div>
-            <Footer />
+            <NotRelated />
           </Route>
-
-          <Route path="/internship">
+          <Route path="/home/:info">
             <TitleExpandFormat />
-            <Footer />
-          </Route>
-
-          <Route path="/project">
-            <TitleExpandFormat />
-            <Footer />
-          </Route>
-
-          <Route path="/contact">
-            <TitleExpandFormat />
-            <Footer />
           </Route>
         </Switch>
       </AnimatePresence>
+      {pageState !== "landing" && <Footer />}
     </div>
   )
 }

@@ -22,6 +22,7 @@ a {
 /* header */
 
 header {
+  display: block;
   font-size: 2em;
   position: fixed;
   top: 0;
@@ -73,10 +74,6 @@ li .fa {
 nav a {
   color: var(--black);
   transition: 0.5s ease;
-}
-
-nav ul li a:hover {
-  color: grey;
 }
 
 .nav-toggle {
@@ -312,25 +309,40 @@ nav ul li a:hover {
 /* title expand */
 
 .title-expand-wrap {
+  position: relative;
+  top: 2em;
+  padding: 2em;
   text-align: center;
   width: 100%;
-  height: 100vh;
+  height: 88vh;
 }
 
 .title-expand {
+  width: fit-content;
   display: block;
-  position: absolute;
+  position: relative;
 }
-
-.expand-line {
+.title-expand::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  background: var(--black);
+  opacity: 0.5;
+  width: 100%;
+  height: 0.125em;
+}
+.expand-vertical, .expand-horizontal {
   position: relative;
   display: block;
-  background: black;
-  width: 30%;
-  height: 2px;
-  top: 10%;
-  margin: 0 auto;
-  margin-top: 0.5em;
+  background: red;
+  width: 2em;
+  height: 2em;
+}
+
+.expand-back {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 blink {
@@ -369,7 +381,7 @@ footer p {
 
 .fa {
   color: var(--black);
-  font-size: 1.5rem;
+  font-size: 1.5em;
   margin: 0 1.25rem;
   transition: 0.5s ease;
 }
@@ -387,9 +399,8 @@ form {
   border-radius: 1em;
   font-size: 1.5em;
   position: relative;
-  top: 20%;
   width: 80%;
-  margin: 0 auto;
+  margin: 3em auto;
 }
 
 .form-item {
@@ -452,9 +463,9 @@ form {
   display: block;
   text-align: left;
   position: relative;
-  top: 20%;
   width: 60%;
-  margin: 0 auto;
+  margin: 5em auto;
+  height: 80%;
 }
 
 .intern-picker-wrap {
@@ -471,7 +482,7 @@ form {
   margin: 0 1em;
   padding: 1em;
   color: var(--black);
-  border-radius: 0.5em;
+  border-radius: 0.125em;
   cursor: pointer;
   display: -webkit-inline-box;
 }
@@ -596,6 +607,7 @@ form {
   form {
     width: 90%;
     display: block;
+    margin: 5em auto;
     font-size: 1.25em;
   }
   .form-item {
@@ -609,10 +621,11 @@ form {
     text-align: center;
   }
   .intern-wrap, .project-wrap {
-    top: 15%;
     width: 80%;
   }
   .intern-des, .project-des {
+    margin-top: 2em;
+    font-size: 1em;
     width: auto;
   }
   .project-picker, .intern-picker {
@@ -621,6 +634,21 @@ form {
   .landing-text h1 {
     font-size: 1em;
   }
+}
+
+/* not related wrap */
+.not-page-wrap {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+.not-content-wrap {
+  position: relative;
+  width: 80%;
+  text-align: center;
 }
 
 /* animation keyframe */

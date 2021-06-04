@@ -22,8 +22,8 @@ export const SvgAce = () => {
 
     return (
         <div className="svg-container" style={{textAlign:"end"}}>
-            <svg layout version="1.0" xmlns="http://www.w3.org/2000/svg" 
-            scaleX="-1"
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
+            scalex="-1"
             style={{minWidth:"400px", width:"40%", height:"40%", transform:`translateY(${offsetY * 0.1}px)`}}
             viewBox="0 0 450.000000 400.000000" preserveAspectRatio="xMidYMid meet">
                 <motion.g transform="translate(0.000000,383.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">

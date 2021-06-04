@@ -4,16 +4,17 @@ import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom";
 export const Footer = () => {
     const location = useLocation()
     const pathname = location.pathname
+    
     let footerDis = "block"
     let footerPos = ""
     let footerBot = ""
     
     if (pathname === "/") {
-        footerDis = "none"
-        footerPos = ""
-        footerBot = ""
+        // footerDis = "none"
+        // footerPos = ""
+        // footerBot = ""
     }
-    else if (pathname === "/home") {
+    else if (pathname === "/home" || pathname === "/notrelated") {
         footerBot = "none"
         footerPos = "relative"
     }
