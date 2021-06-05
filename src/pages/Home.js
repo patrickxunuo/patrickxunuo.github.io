@@ -1,13 +1,11 @@
 import React from 'react'
 import BackgroundSvg from '../components/BackgroundSvg'
 import Maincontainer from '../components/Maincontainer'
-import TitleExpandFormat from '../components/TitleExpandFormat'
-import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion'
-import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
+import { motion } from 'framer-motion'
+import Loader from '../components/Loader'
+import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
 const Home = () => {
-
-    const location = useLocation()
 
     const homeVariants = {
         hidden: {
@@ -15,17 +13,18 @@ const Home = () => {
         },
         visible: {
             opacity: 1,
-            transition: { duration: 2, ease: "easeInOut" }
+            transition: { duration: 1, ease: "easeInOut" }
         },
         exit: {
             opacity: 0,
             y: '+10vh',
-            transition: { ease: "easeInOut" }
+            transition: { duration: 1.5, ease: "easeInOut" }
         }
     }
 
     return (
         <>
+            <Loader />
             <motion.div variants={homeVariants}
                 initial="hidden"
                 animate="visible"

@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import "aos/dist/aos.css"
-import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
+import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
 
 const Title = ({ item }) => {
 
     const [extendState, setExtendState] = useState(false)
-    const [rectState, setRectState] = useState([0, 0, 0, 0])
+    // const [rectState, setRectState] = useState([0, 0, 0, 0])
 
 
 
-    const rectScroll = () => setRectState(
-        showPos(`#title-${item.content}`)
-    )
+    // const rectScroll = () => setRectState(
+    //     showPos(`#title-${item.content}`)
+    // )
 
-    useEffect(() => {
-        window.addEventListener("scroll", rectScroll)
-        return () => window.removeEventListener("scroll", rectScroll)
-    }, [])
+    // useEffect(() => {
+    //     window.addEventListener("scroll", rectScroll)
+    //     return () => window.removeEventListener("scroll", rectScroll)
+    // }, [])
 
 
-    function showPos(thisId) {
-        let elem = document.querySelector(thisId);
-        let rect = elem.getBoundingClientRect();
-        return [rect.top, rect.bottom, rect.left, rect.right]
-    }
+    // function showPos(thisId) {
+    //     let elem = document.querySelector(thisId);
+    //     let rect = elem.getBoundingClientRect();
+    //     return [rect.top, rect.bottom, rect.left, rect.right]
+    // }
 
     return (
         <>
@@ -50,12 +50,16 @@ const Title = ({ item }) => {
                     <div>
                         <Link
                             to={{
-                                pathname: `/home/${item.content}`,
-                                state: {
-                                    rect: rectState
-                                }
+                                pathname: `/${item.content}`,
+                                // state: {
+                                //     rect: rectState
+                                // }
                             }}>
-                            <motion.input className="more-btn" type="button" value="More" onClick={() => setExtendState(!extendState)} whileHover={{ scale: 1.1 }} ></motion.input></Link>
+                            <motion.input className="more-btn" type="button" value="More" 
+                            onClick={() => {
+                                setExtendState(!extendState)
+                            }}
+                            whileHover={{ scale: 1.1 }} ></motion.input></Link>
                         <span className="title-arrow-more">{'-->'}</span>
                     </div>
                 }

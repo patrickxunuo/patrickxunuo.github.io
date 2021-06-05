@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from '../components/Loader'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
 
@@ -12,17 +13,18 @@ const NotRelated = () => {
     },
     visible: {
       opacity: 1,
-      transition: { duration: 2, ease: "easeInOut" }
+      transition: { duration: 1, ease: "easeInOut" }
     },
     exit: {
       opacity: 0,
       y: '+10vh',
-      transition: { ease: "easeInOut" }
+      transition: { duration: 1.5, ease: "easeInOut" }
     }
   }
 
   return (
     <>
+      <Loader />
       <motion.div variants={notrelateVariants}
         initial="hidden"
         animate="visible"

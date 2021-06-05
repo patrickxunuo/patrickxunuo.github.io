@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
 const Navbar = (props) => {
     const pathname = props.pathname
@@ -9,8 +9,11 @@ const Navbar = (props) => {
     let notUserSelect = "auto"
     let homeCursor = "default"
     let notCursor = "pointer"
-    console.log(pathname)
-    if (pathname !== "/home") {
+    
+    if(pathname=="/"){
+        
+    }
+    else if (pathname !== "/home") {
         homeColor = "var(--black)"
         notColor = "grey"
         homeUserSelect = "auto"

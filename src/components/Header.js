@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
-import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
 
 export const Header = () => {
     const location = useLocation()

@@ -6,16 +6,16 @@ import NotRelated from './pages/NotRelated'
 import TitleExpandFormat from './components/TitleExpandFormat'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { BrowserRouter as Switch, Route, useLocation } from "react-router-dom"
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
+import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
 
 function App() {
   const location = useLocation()
 
   let initialpage = "landing"
-  if (location.pathname!=="/")
-  initialpage = "home"
+  if (location.pathname !== "/")
+    initialpage = "home"
 
   const [pageState, setPageState] = useState(initialpage)
 
@@ -26,19 +26,25 @@ function App() {
   return (
     <div className="App">
       {pageState !== "landing" && <Header />}
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route exact path="/">
             <Landing changepage={changePageState} />
           </Route>
-          <Route exact path="/home">
+          <Route path="/home">
             <Home />
           </Route>
-          <Route exact path="/notrelated">
+          <Route path="/notrelated">
             <NotRelated />
           </Route>
-          <Route path="/home/:info">
-            <TitleExpandFormat />
+          <Route path="/internship">
+            <TitleExpandFormat title={"internship"} />
+          </Route>
+          <Route path="/project">
+            <TitleExpandFormat title={"project"} />
+          </Route>
+          <Route path="/contact">
+            <TitleExpandFormat title={"contact"} />
           </Route>
         </Switch>
       </AnimatePresence>

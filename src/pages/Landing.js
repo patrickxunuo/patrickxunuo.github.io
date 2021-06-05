@@ -4,6 +4,7 @@ import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-
 
 const Landing = (props) => {
     const changepage = props.changepage
+
     const landingVariants = {
         hidden: {
             opacity: 0
@@ -14,21 +15,18 @@ const Landing = (props) => {
             transition: { duration: 2, ease: "easeInOut" }
         },
         exit: {
-            opacity: 0,
-            y: '+10vh',
-            transition: { ease: "easeInOut", delay: 2 }
+            x: '-100vw',
+            transition: { ease: 'easeInOut' }
         }
     }
 
-
     return (
-        <>
-            <motion.div className="landing-page"
-                variants={landingVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit">
-                <motion.div
+        <motion.div variants={landingVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="landing-page">
+            <motion.div
                     initial={{
                         y: 0
                     }}
@@ -39,8 +37,8 @@ const Landing = (props) => {
                     className="landing-text">
                     <h1>Hi, I am Patrick Xu.</h1>
                 </motion.div>
-                <Link to="/home">
-                    <motion.div
+            <Link to="/home">
+                <motion.div
                         initial={{
                             opacity: 0,
                             background: "transparent"
@@ -53,9 +51,8 @@ const Landing = (props) => {
                         className="landing-button">
                         Enter
                     </motion.div>
-                </Link>
-            </motion.div>
-        </>
+            </Link>
+        </motion.div>
     )
 }
 

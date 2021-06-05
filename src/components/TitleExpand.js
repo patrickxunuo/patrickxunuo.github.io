@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm.js'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
 const TitleExpand = (props) => {
     const item = props.item
-    const rect = props.rect
     const [internState, setInternState] = useState(1);
     const [projectState, setProjecState] = useState(1);
+
+    // const rect = props.rect
 
     const internSelect = {
         open: { background: "rgba(128, 128, 128,1)", color: "var(--white)" },
@@ -18,22 +19,52 @@ const TitleExpand = (props) => {
         closed: { background: "var(--graino)", color: "var(--black)" }
     }
 
+    const spansVariants = {
+        initial: {
+            scale: 1.3,
+            top: "10%",
+            left: "50%",
+            translateX: "-50%",
+            translateY: "-50%",
+            opacity: 0,
+            y: "-5vh",
+        },
+        animate: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 1, easea: "easeInOut" }
+        },
+        exit: {
+            y: "-5vh",
+            opacity: 0,
+            transition: { duration: 1, easea: "easeInOut" }
+        }
+    }
+
+    const tableVariants = {
+        initial: {
+            opacity: 0,
+            y: '+5vh'
+        },
+        animate: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 1, easea: "easeInOut" }
+        },
+        exit: {
+            y: "+5vh",
+            opacity: 0,
+            transition: { duration: 1, easea: "easeInOut" }
+        }
+    }
     return (
         <>
-            <motion.div className="title-expand" style={{ top: rect[0], left: rect[2] }}
-                animate={{
-                    scale: 1.5,
-                    top: "10%",
-                    left: "50%",
-                    translateX: "-50%",
-                    translateY: "-50%",
-                    transition: { duration: 1, ease: "easeInOut" },
-                }}
-                exit={{
-                    y: "-5vh",
-                    opacity: 0,
-                    transition: { duration: 1, easea: "easeInOut" }
-                }}
+            <motion.div className="title-expand"
+                // style={{ top: rect[0], left: rect[2] }}
+                variants={spansVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
             >
                 <span className="span-1">patxu.</span>
                 <span className="span-2">{item.content}</span>
@@ -43,19 +74,11 @@ const TitleExpand = (props) => {
                 <ContactForm />}
 
             {item.content === "internship" &&
-                <motion.div className="intern-wrap" initial={{
-                    opacity: 0
-                }}
-                    animate={{
-                        opacity: 1,
-                        transition: { delay: 1, duration: 1, ease: "easeInOut" }
-                    }}
-                    exit={{
-                        y: "+5vh",
-                        opacity: 0,
-                        transition: { duration: 1, easea: "easeInOut" }
-                    }}
-                >
+                <motion.div className="intern-wrap"
+                    variants={tableVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit">
                     <div className="intern-picker-wrap">
                         <input type="radio" id="intern-1" onClick={() => {
                             setInternState(1)
@@ -104,26 +127,14 @@ const TitleExpand = (props) => {
                             ● Organized and coached robotic competitions
                         </li>
                     </ul>}
-                    <div className="expand-back">
-                        <span className="title-arrow-back">{'-->'}</span>
-                        <Link to='/home'>
-                            <motion.input className="more-btn" type="button" value="Back" whileHover={{ scale: 1.1 }} ></motion.input></Link>
-                    </div>
                 </motion.div>}
 
             {item.content === "project" &&
-                <motion.div className="project-wrap" initial={{
-                    opacity: 0
-                }}
-                    animate={{
-                        opacity: 1,
-                        transition: { delay: 1, duration: 1, ease: "easeInOut" }
-                    }}
-                    exit={{
-                        y: "+5vh",
-                        opacity: 0,
-                        transition: { duration: 1, easea: "easeInOut" }
-                    }}>
+                <motion.div className="project-wrap"
+                    variants={tableVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit">
                     <div className="project-picker-wrap">
                         <input type="radio" id="project-1" onClick={() => {
                             setProjecState(1)
@@ -215,12 +226,12 @@ const TitleExpand = (props) => {
                         </li>
 
                     </ul>}
-                    <div className="expand-back">
-                        <span className="title-arrow-back">{'-->'}</span>
-                        <Link to="/home">
-                            <motion.input className="more-btn" type="button" value="Back" whileHover={{ scale: 1.1 }} ></motion.input></Link>
-                    </div>
                 </motion.div>}
+            <div className="expand-back">
+                <span className="title-arrow-back">{'-->'}</span>
+                <Link to="/home">
+                    <motion.input className="more-btn" type="button" value="Back" whileHover={{ scale: 1.1 }} ></motion.input></Link>
+            </div>
         </>
     )
 }
