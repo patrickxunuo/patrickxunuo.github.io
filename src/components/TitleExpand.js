@@ -86,7 +86,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="intern-1" className="intern-picker"
                             animate={internState === 1 ? "open" : "closed"}
                             variants={internSelect}>
-                            Intern #1
+                             1
                         </motion.label>
                         <input type="radio" id="intern-2" onClick={() => {
                             setInternState(2)
@@ -95,7 +95,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="intern-2" className="intern-picker"
                             animate={internState === 2 ? "open" : "closed"}
                             variants={internSelect}>
-                            Intern #2
+                             2
                         </motion.label>
                     </div>
                     {internState === 1 && <ul className="intern-des intern-1" >
@@ -142,7 +142,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="project-1" className="project-picker"
                             animate={projectState === 1 ? "open" : "closed"}
                             variants={projectSelect}>
-                            Project #1
+                            1
                         </motion.label>
                         <input type="radio" id="project-2" onClick={() => {
                             setProjecState(2)
@@ -151,7 +151,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="project-2" className="project-picker"
                             animate={projectState === 2 ? "open" : "closed"}
                             variants={projectSelect}>
-                            Project #2
+                            2
                         </motion.label>
                         <input type="radio" id="project-3" onClick={() => {
                             setProjecState(3)
@@ -160,7 +160,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="project-3" className="intern-picker"
                             animate={projectState === 3 ? "open" : "closed"}
                             variants={projectSelect}>
-                            Project #3
+                            3
                         </motion.label>
                         <input type="radio" id="project-4" onClick={() => {
                             setProjecState(4)
@@ -169,7 +169,7 @@ const TitleExpand = (props) => {
                         <motion.label htmlFor="project-4" className="intern-picker"
                             animate={projectState === 4 ? "open" : "closed"}
                             variants={projectSelect}>
-                            Project #4
+                            4
                         </motion.label>
                     </div>
                     {projectState === 1 && <ul className="project-des project-1" >

@@ -633,12 +633,13 @@ form {
     width: 90%;
   }
   .intern-wrap, .project-wrap {
-    width: 80%;
+    width: 100%;
   }
   .intern-des, .project-des {
+    padding: 0;
     margin-top: 2em;
     font-size: 1.5em;
-    width: auto;
+    width: 100%;
   }
   .project-picker, .intern-picker {
     margin: 2px 1em;
@@ -654,17 +655,57 @@ form {
   display: flex;
   position: relative;
   width: 100%;
-  align-content: center;
   justify-content: center;
+  align-items: center;
   margin-top: 5%;
+  height: 80vh;
+  flex-direction: column;
 }
-
 .not-content-wrap {
   position: relative;
-  width: 80%;
+  display: block;
+}
+.not-content-top {
+  width: 60%;
+}
+.not-content-bot {
+  width: 100%;
   text-align: center;
 }
-
+.not-text {
+  font-size: 10em;
+  font-family: var(--faus);
+}
+.not-thumbnail {
+  overflow: hidden;
+}
+.not-frame {
+  overflow: hidden;
+}
+.not-paragraph {
+  margin-top: 5em;
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+.not-para-left{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.not-para-right{
+  font-size: 1.25em;
+  width: 50%;
+  text-align: left;
+}
+.not-go {
+  margin: 2em;
+  font-size: 2em;
+  background: none;
+  border: none;
+  border-bottom: 2px var(--black) solid;
+  font-family: var(--faus);
+  cursor: pointer;
+}
 /* animation keyframe */
 
 @keyframes bounce-more {

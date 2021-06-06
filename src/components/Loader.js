@@ -18,7 +18,7 @@ export const Loader = () => {
         <motion.div variants={homeVariants}
             initial="hidden"
             animate="visible"
-            class="loader">
+            className="loader">
         </motion.div>
     )
 }
