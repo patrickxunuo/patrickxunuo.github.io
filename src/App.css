@@ -1,762 +1,827 @@
 .App {
-  overflow: hidden;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  /* font-family: "Source Sans Pro", sans-serif; */
-  font-family: var(--mono);
+    overflow: hidden;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* font-family: "Source Sans Pro", sans-serif; */
+    font-family: var(--mono);
 }
 
 a {
-  text-decoration: none;
-  color: var(--black)
+    text-decoration: none;
+    color: var(--black)
 }
 
 .a-block {
-  display: block;
-  position: relative;
-  height: 400px;
+    display: block;
+    position: relative;
+    height: 400px;
 }
+
 /* loader */
 .loader {
-  position: fixed;
-  top: 0;
-  height: 2px;
-  width: 100%;
-  background: green;
+    position: fixed;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background: green;
 }
 
 /* header */
 
 header {
-  display: block;
-  font-size: 2em;
-  position: fixed;
-  top: 0;
-  padding-top: 0.5rem;
-  z-index: 99;
-  width: 100%;
+    display: block;
+    font-size: 2em;
+    position: fixed;
+    top: 0;
+    padding-top: 0.5rem;
+    z-index: 99;
+    width: 100%;
 }
 
 .header-wrap {
-  display: flex;
-  max-width: min(90rem, 90%);
-  justify-content: space-between;
-  margin: 0 auto;
-  align-items: center;
+    display: flex;
+    max-width: min(90rem, 90%);
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
 }
 
 .header-logo {
-  position: relative;
-  display: block;
+    position: relative;
+    display: block;
 }
 
 /* nav */
 
 nav {
-  display: inline-block;
-  font-size: 1.25rem;
+    display: inline-block;
+    font-size: 1.25rem;
 }
 
 nav ul {
-  display: flex;
-  list-style-type: none;
-  align-items: center;
-  margin: 0;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    margin: 0;
 }
 
 nav ul li {
-  margin: 0 0.75rem;
+    margin: 0 0.75rem;
 }
 
 li .fa {
-  font-size: 1.25rem;
-  margin: 0 0.75rem;
+    font-size: 1.25rem;
+    margin: 0 0.75rem;
 }
 
 .fa:hover {
-  color: grey !important;
+    color: grey !important;
 }
 
 nav a {
-  color: var(--black);
-  transition: 0.5s ease;
+    color: var(--black);
+    transition: 0.5s ease;
 }
 
 .nav-toggle {
-  display: none;
+    display: none;
 }
 
 .nav-toggle-label, .nav-toggle-label::before, .nav-toggle-label::after {
-  display: none;
+    display: none;
 }
 
 .nav-canvas {
-  display: none;
+    display: none;
 }
 
 /* main container */
 
 .main-container {
-  display: block;
-  position: relative;
-  padding-left: 20%;
-  top: 20rem;
-  height: fit-content;
-  margin-bottom: 450px;
+    display: block;
+    position: relative;
+    padding-left: 20%;
+    top: 20rem;
+    height: fit-content;
+    margin-bottom: 450px;
 }
 
 /* landing page */
 
 .landing-page {
-  display: flex;
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .landing-text h1 {
-  font-size: 3rem;
-  display: block;
-  position: relative;
-  width: auto;
-  font-weight: lighter;
-  user-select: none;
+    font-size: 3rem;
+    display: block;
+    position: relative;
+    width: auto;
+    font-weight: lighter;
+    user-select: none;
 }
 
 .landing-text h1::before, .landing-text h1::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .landing-text h1::before {
-  animation: typeBlink 5s steps(var(--typeStep)) forwards 1s;
-  background: var(--grain);
-  background-image: url('./components/svg/filtergrain.png');
+    animation: typeBlink 5s steps(var(--typeStep)) forwards 1s;
+    background: var(--grain);
+    background-image: url('./components/svg/filtergrain.png');
 }
 
 .landing-text h1::after {
-  width: 0.125rem;
-  background: var(--black);
-  animation: typeBlink 5s steps(var(--typeStep)) forwards 1s, typeFlash 1s infinite;
+    width: 0.125rem;
+    background: var(--black);
+    animation: typeBlink 5s steps(var(--typeStep)) forwards 1s, typeFlash 1s infinite;
 }
 
 .landing-button {
-  display: flex;
-  font-size: 1.25em;
-  width: 5em;
-  height: 5em;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1.5px var(--black) solid;
-  transition: 0.5s ease;
-  box-shadow: 0 0 5px 1px transparent;
+    display: flex;
+    font-size: 1.25em;
+    width: 5em;
+    height: 5em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1.5px var(--black) solid;
+    transition: 0.5s ease;
+    box-shadow: 0 0 5px 1px transparent;
 }
 
 .landing-button:hover {
-  box-shadow: 0 0 5px 1px black;
+    box-shadow: 0 0 5px 1px black;
 }
 
 /* not related container */
 
 .notrelated-container {
-  position: relative;
-  display: flex;
-  width: 100%;
+    position: relative;
+    display: flex;
+    width: 100%;
 }
 
 /* the line */
 
 .ball-line {
-  display: block;
-  position: relative;
-  left: -5em;
-  top: 5em;
+    display: block;
+    position: relative;
+    left: -5em;
+    top: 5em;
 }
 
 .the-ball {
-  display: block;
-  position: fixed;
-  width: 0.625em;
-  height: 0.625em;
-  border-radius: 100%;
-  background: var(--black);
-  box-shadow: none;
-  transition: 1s ease;
-  z-index: 999;
+    display: block;
+    position: fixed;
+    width: 0.625em;
+    height: 0.625em;
+    border-radius: 100%;
+    background: var(--black);
+    box-shadow: none;
+    transition: 1s ease;
+    z-index: 999;
 }
 
 .the-line {
-  display: block;
-  position: fixed;
-  width: 0.0625em;
-  min-height: 100vh;
-  background: var(--black);
-  margin-left: 4px;
-  z-index: 99;
+    display: block;
+    position: fixed;
+    width: 0.0625em;
+    min-height: 100vh;
+    background: var(--black);
+    margin-left: 4px;
+    z-index: 99;
 }
 
 .the-line-move {
-  display: block;
-  position: fixed;
-  width: 0.0625em;
-  min-height: 100vh;
-  background: linear-gradient(var(--grain), var(--black));
-  margin-left: 4px;
-  z-index: 98;
+    display: block;
+    position: fixed;
+    width: 0.0625em;
+    min-height: 100vh;
+    background: linear-gradient(var(--grain), var(--black));
+    margin-left: 4px;
+    z-index: 98;
 }
 
 /* title */
 
 .title {
-  display: block;
-  position: relative;
-  text-align: left;
-  width: 80%;
-  border-radius: 0.5em;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-size: cover;
-  max-height: 90vh;
-  overflow-y: auto;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 80%;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-size: cover;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .title-canvas {
-  background-color: var(--grain);
-  width: 10000px;
-  height: 10000px;
-  display: none;
-  position: absolute;
-  overflow: hidden;
+    background-color: var(--grain);
+    width: 10000px;
+    height: 10000px;
+    display: none;
+    position: absolute;
+    overflow: hidden;
 }
 
 .first-title {
-  display: block;
-  position: relative;
-  text-align: left;
-  width: 80%;
-  padding: 1em;
-  margin-bottom: 2em;
-  box-shadow: none;
-  border-radius: 0;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 80%;
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .span-1, .span-2 {
-  transform: scale(1);
-  font-size: 3em;
+    transform: scale(1);
+    font-size: 3em;
 }
 
 .title .span-1 {
-  color: var(--black);
+    color: var(--black);
 }
 
 .title .span-2 {
-  color: var(--black);
+    color: var(--black);
 }
 
 .title-item {
-  margin: 0.3em 0;
+    margin: 0.3em 0;
 }
 
 .title-location, .title-time {
-  display: inline-block;
-  font-size: 1.25em;
-  color: var(--black);
+    display: inline-block;
+    font-size: 1.25em;
+    color: var(--black);
 }
 
 .title-what {
-  font-size: 1.5em;
-  color: gray;
+    font-size: 1.5em;
+    color: gray;
 }
 
 .more-btn {
-  background: transparent;
-  font-family: var(--mono);
-  font-size: 1.25em;
-  border: none;
-  color: grey;
-  cursor: pointer;
-  margin: 1em;
-  transition: 0.3s ease;
+    background: transparent;
+    font-family: var(--mono);
+    font-size: 1.25em;
+    border: none;
+    color: grey;
+    cursor: pointer;
+    margin: 1em;
+    transition: 0.3s ease;
 }
 
 .title-arrow-more, .title-arrow-back {
-  position: relative;
-  color: grey;
-  transition: 0.5s ease;
+    position: relative;
+    color: grey;
+    transition: 0.5s ease;
 }
 
 .more-btn:hover {
-  color: var(--black);
+    color: var(--black);
 }
 
-.more-btn:hover~.title-arrow-more {
-  animation: 0.5s bounce-more ease-in-out infinite;
-  color: var(--black);
+.more-btn:hover ~ .title-arrow-more {
+    animation: 0.5s bounce-more ease-in-out infinite;
+    color: var(--black);
 }
 
-.more-btn:hover~.title-arrow-back {
-  animation: 0.5s bounce-back ease-in-out infinite;
-  color: var(--black);
+.more-btn:hover ~ .title-arrow-back {
+    animation: 0.5s bounce-back ease-in-out infinite;
+    color: var(--black);
 }
 
 .space-block {
-  position: relative;
-  height: 400px;
-  background: transparent;
+    position: relative;
+    height: 400px;
+    background: transparent;
 }
 
 /* title expand */
 
 .title-expand-wrap {
-  position: relative;
-  top: 2em;
-  padding: 2em;
-  text-align: center;
-  width: 100%;
-  height: 88vh;
+    position: relative;
+    top: 2em;
+    padding: 2em;
+    text-align: center;
+    width: 100%;
+    height: 88vh;
 }
 
 .title-expand {
-  width: fit-content;
-  display: block;
-  position: relative;
+    width: fit-content;
+    display: block;
+    position: relative;
 }
 
 .title-expand::before {
-  position: absolute;
-  content: '';
-  top: 50%;
-  background: var(--black);
-  opacity: 0.5;
-  width: 100%;
-  height: 0.125em;
+    position: absolute;
+    content: '';
+    top: 50%;
+    background: var(--black);
+    opacity: 0.5;
+    width: 100%;
+    height: 0.125em;
 }
 
 .expand-vertical, .expand-horizontal {
-  position: relative;
-  display: block;
-  background: red;
-  width: 2em;
-  height: 2em;
+    position: relative;
+    display: block;
+    background: red;
+    width: 2em;
+    height: 2em;
 }
 
 .expand-back {
-  position: absolute;
-  bottom: 5em;
-  right: 5em;
+    position: absolute;
+    bottom: 5em;
+    right: 5em;
 }
 
 blink {
-  color: var(--black);
+    color: var(--black);
 }
 
 /* intern description */
 
 .intern-des, .project-des {
-  font-size: 1.5em;
-  list-style-type: none;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  margin: 2em auto;
+    font-size: 1.5em;
+    list-style-type: none;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
 }
 
 .intern-des li, .project-des li {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 /* footer */
 
 footer {
-  text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 footer p {
-  color: var(--black);
-  font-size: 1.25em;
+    color: var(--black);
+    font-size: 1.25em;
 }
 
 /* fa */
 
 .fa {
-  color: var(--black);
-  font-size: 1.5em;
-  margin: 0 1.25rem;
-  transition: 0.5s ease;
+    color: var(--black);
+    font-size: 1.5em;
+    margin: 0 1.25rem;
+    transition: 0.5s ease;
 }
 
 .fa:hover {
-  color: var(--black);
+    color: var(--black);
 }
 
 /* form */
 
 form {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr 2fr 1fr;
-  border-radius: 1em;
-  font-size: 1.5em;
-  position: relative;
-  width: 80%;
-  margin: 3em auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+    border-radius: 1em;
+    font-size: 1.5em;
+    position: relative;
+    width: 80%;
+    margin: 3em auto;
 }
 
 .form-item {
-  text-align: left;
-  margin: 0.5em 1em;
+    text-align: left;
+    margin: 0.5em 1em;
 }
 
 .form-item input, .form-item textarea, form button {
-  width: 100%;
-  height: 2em;
-  border: none;
-  outline: none;
-  border-radius: 0.5em;
-  background: rgba(0, 128, 0, 0.2);
-  font-family: var(--mono);
-  font-size: 1em;
-  justify-content: start;
+    width: 100%;
+    height: 2em;
+    border: none;
+    outline: none;
+    border-radius: 0.5em;
+    background: rgba(0, 128, 0, 0.2);
+    font-family: var(--mono);
+    font-size: 1em;
+    justify-content: start;
 }
 
 .form-item textarea {
-  height: 80%;
-  width: 100%;
-  resize: none;
+    height: 80%;
+    width: 100%;
+    resize: none;
 }
 
 .form-label {
-  justify-self: start;
+    justify-self: start;
 }
 
 .form-name {
-  grid-column: 1/3;
+    grid-column: 1/3;
 }
 
 .form-email {
-  grid-column: 3/5;
+    grid-column: 3/5;
 }
 
 .form-submit {
-  grid-column: 1/5;
+    grid-column: 1/5;
 }
 
 .form-subject, .form-message, .form-submit {
-  grid-column: 1/5;
+    grid-column: 1/5;
 }
 
 #form-submit {
-  display: block;
-  position: relative;
-  width: 50%;
-  margin: 1em auto;
-  background: var(--black);
-  color: #fff;
-  text-align: center;
-  font-size: 1em;
-  cursor: pointer;
-  transition: 0.8s ease;
+    display: block;
+    position: relative;
+    width: 50%;
+    margin: 1em auto;
+    background: var(--black);
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.8s ease;
 }
 
 .intern-wrap, .project-wrap {
-  display: block;
-  text-align: left;
-  position: relative;
-  width: 60%;
-  margin: 5em auto;
-  height: 80%;
+    display: block;
+    text-align: left;
+    position: relative;
+    width: 60%;
+    margin: 5em auto;
+    height: 80%;
 }
 
 .intern-picker-wrap, .project-picker-wrap {
-  text-align: center;
-  height: 2em;
+    text-align: center;
+    height: 2em;
 }
 
 .intern-picker-wrap input, .project-picker-wrap input {
-  display: none;
+    display: none;
 }
 
 .intern-picker, .project-picker {
-  font-family: var(--mono);
-  font-size: 1em;
-  margin: 0 1em;
-  padding: 1em;
-  color: var(--black);
-  border-radius: 0.125em;
-  cursor: pointer;
-  display: -webkit-inline-box;
+    font-family: var(--mono);
+    font-size: 1em;
+    margin: 0 1em;
+    padding: 1em;
+    color: var(--black);
+    border-radius: 0.125em;
+    cursor: pointer;
+    display: -webkit-inline-box;
 }
 
 #form-submit:hover {
-  background: var(--black);
+    background: var(--black);
 }
 
 @media (max-width: 800px) {
-  .App {
-    font-size: 12px;
-  }
-  body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-  }
-  .main-container {
-    padding-left: 15%;
-  }
-  nav {
-    all: unset;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    right: 0;
-    top: 40px;
-    text-align: right;
-    font-size: 1.5rem;
-    transform-origin: right;
-    transform: translateX(100%);
-    transition: 0.8s ease;
-    z-index: -999999;
-  }
-  .nav-canvas {
-    display: block;
-    position: fixed;
-    width: 100000px;
-    height: 100000px;
-    background: black;
-    opacity: 0;
-    z-index: 0;
-    right: -1000000px;
-  }
-  nav .fa {
-    font-size: 1.5rem;
-    margin-right: 0;
-  }
-  nav ul {
-    all: unset;
-    list-style-type: none;
-  }
-  nav a, nav .fa {
-    color: var(--white);
-  }
-  nav ul li {
-    margin: 0.5em 0.5em;
-    margin-left: 1em;
-  }
-  .nav-toggle-label {
-    display: flex;
-    align-items: center;
-    z-index: 999999;
-    width: 2em;
-    height: 2em;
-    justify-content: flex-end;
-  }
-  .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
-    position: relative;
-    display: block;
-    background: var(--black);
-    width: 3px;
-    height: 3px;
-    border-radius: 1.5px;
-    transition: 0.8s ease;
-    right: 0;
-  }
-  .nav-toggle-label span::before, .nav-toggle-label span::after {
-    content: '';
-    position: absolute;
-  }
-  .nav-toggle-label span::before {
-    bottom: 7px;
-  }
-  .nav-toggle-label span::after {
-    top: 7px;
-  }
-  .ball-line {
-    display: block;
-    position: relative;
-    left: -2em;
-    top: 5em;
-  }
-  .nav-toggle:checked~nav {
-    transform: translateX(-3%);
-    z-index: 999999;
-  }
-  .nav-toggle:checked~.nav-toggle-label span::before {
-    width: 0.5em;
-    background: var(--white);
-    z-index: 999999;
-  }
-  .nav-toggle:checked~.nav-toggle-label span {
-    width: 1em;
-    background: var(--white);
-    z-index: 999999;
-  }
-  .nav-toggle:checked~.nav-toggle-label span::after {
-    width: 1.5em;
-    background: var(--white);
-    z-index: 999999;
-  }
-  .nav-toggle:checked~.nav-canvas {
-    right: 0;
-    opacity: 0.8;
-    z-index: 99999;
-  }
-  .span-1, .span-2 {
-    font-size: 2em;
-  }
-  form {
-    width: 90%;
-    display: block;
-    margin: 5em auto;
-    font-size: 1.25em;
-  }
-  .form-item {
-    text-align: left;
-    margin: 0.5em 1em;
-  }
-  .title {
-    width: 90%;
-  }
-  .intern-wrap, .project-wrap {
-    width: 100%;
-  }
-  .intern-des, .project-des {
-    padding: 0;
-    margin-top: 2em;
-    font-size: 1.5em;
-    width: 100%;
-  }
-  .project-picker, .intern-picker {
-    margin: 2px 1em;
-  }
-  .landing-text h1 {
-    font-size: 1em;
-  }
+    .App {
+        font-size: 12px;
+    }
+
+    body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+    }
+
+    .main-container {
+        padding-left: 15%;
+    }
+
+    nav {
+        all: unset;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        right: 0;
+        top: 40px;
+        text-align: right;
+        font-size: 1.5rem;
+        transform-origin: right;
+        transform: translateX(100%);
+        transition: 0.8s ease;
+        z-index: -999999;
+    }
+
+    .nav-canvas {
+        display: block;
+        position: fixed;
+        width: 100000px;
+        height: 100000px;
+        background: black;
+        opacity: 0;
+        z-index: 0;
+        right: -1000000px;
+    }
+
+    nav .fa {
+        font-size: 1.5rem;
+        margin-right: 0;
+    }
+
+    nav ul {
+        all: unset;
+        list-style-type: none;
+    }
+
+    nav a, nav .fa {
+        color: var(--white);
+    }
+
+    nav ul li {
+        margin: 0.5em 0.5em;
+        margin-left: 1em;
+    }
+
+    .nav-toggle-label {
+        display: flex;
+        align-items: center;
+        z-index: 999999;
+        width: 2em;
+        height: 2em;
+        justify-content: flex-end;
+    }
+
+    .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after {
+        position: relative;
+        display: block;
+        background: var(--black);
+        width: 3px;
+        height: 3px;
+        border-radius: 1.5px;
+        transition: 0.8s ease;
+        right: 0;
+    }
+
+    .nav-toggle-label span::before, .nav-toggle-label span::after {
+        content: '';
+        position: absolute;
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 7px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 7px;
+    }
+
+    .ball-line {
+        display: block;
+        position: relative;
+        left: -2em;
+        top: 5em;
+    }
+
+    .nav-toggle:checked ~ nav {
+        transform: translateX(-3%);
+        z-index: 999999;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        width: 0.5em;
+        background: var(--white);
+        z-index: 999999;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        width: 1em;
+        background: var(--white);
+        z-index: 999999;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        width: 1.5em;
+        background: var(--white);
+        z-index: 999999;
+    }
+
+    .nav-toggle:checked ~ .nav-canvas {
+        right: 0;
+        opacity: 0.8;
+        z-index: 99999;
+    }
+
+    .span-1, .span-2 {
+        font-size: 2em;
+    }
+
+    form {
+        width: 90%;
+        display: block;
+        margin: 5em auto;
+        font-size: 1.25em;
+    }
+
+    .form-item {
+        text-align: left;
+        margin: 0.5em 1em;
+    }
+
+    .title {
+        width: 90%;
+    }
+
+    .intern-wrap, .project-wrap {
+        width: 100%;
+    }
+
+    .intern-des, .project-des {
+        padding: 0;
+        margin-top: 2em;
+        font-size: 1.5em;
+        width: 100%;
+    }
+
+    .project-picker, .intern-picker {
+        margin: 2px 1em;
+    }
+
+    .landing-text h1 {
+        font-size: 1em;
+    }
 }
 
+/* not related photo*/
+.not-photo-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.not-photo-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5em;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 98;
+}
+
+.photo-card{
+    display: block;
+    width: 40%;
+    max-width: 25em;
+    margin: 1em;
+}
+.not-photo{
+    max-height: 25em;
+}
 /* not related wrap */
 
 .not-page-wrap {
-  display: flex;
-  position: relative;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-  height: 80vh;
-  flex-direction: column;
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    height: 80vh;
+    flex-direction: column;
 }
+
 .not-content-wrap {
-  position: relative;
-  display: block;
+    position: relative;
+    display: block;
 }
+
 .not-content-top {
-  width: 60%;
+    width: 60%;
 }
+
 .not-content-bot {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
+
 .not-text {
-  font-size: 10em;
-  font-family: var(--faus);
+    font-size: 10em;
+    font-family: var(--faus);
 }
+
 .not-thumbnail {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .not-frame {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .not-paragraph {
-  margin-top: 5em;
-  display: flex;
-  width: 80%;
-  justify-content: space-evenly;
+    margin-top: 5em;
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
 }
-.not-para-left{
-  font-size: 1.5em;
-  font-weight: bold;
+
+.not-para-left {
+    font-size: 1.5em;
+    font-weight: bold;
 }
-.not-para-right{
-  font-size: 1.25em;
-  width: 50%;
-  text-align: left;
+
+.not-para-right {
+    font-size: 1.25em;
+    width: 50%;
+    text-align: left;
 }
+
 .not-go {
-  margin: 2em;
-  font-size: 2em;
-  background: none;
-  border: none;
-  border-bottom: 2px var(--black) solid;
-  font-family: var(--faus);
-  cursor: pointer;
+    margin: 2em;
+    font-size: 2em;
+    background: none;
+    border: none;
+    border-bottom: 2px var(--black) solid;
+    font-family: var(--faus);
+    cursor: pointer;
 }
+
 /* animation keyframe */
 
 @keyframes bounce-more {
-  from {
-    left: 0;
-  }
-  to {
-    left: 2em;
-  }
+    from {
+        left: 0;
+    }
+    to {
+        left: 2em;
+    }
 }
 
 @keyframes bounce-back {
-  from {
-    left: 2em;
-  }
-  to {
-    left: 0;
-  }
+    from {
+        left: 2em;
+    }
+    to {
+        left: 0;
+    }
 }
 
 @keyframes typeBlink {
-  to {
-    left: 100%;
-  }
+    to {
+        left: 100%;
+    }
 }
 
 @keyframes typeFlash {
-  to {
-    background: transparent;
-  }
+    to {
+        background: transparent;
+    }
 }
 
 /* scroll animation */
 
 .progress-icon {
-  display: block;
-  position: relative;
-  width: 400px;
-  height: 400px;
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 400px;
 }
 
 /* svg container */
 
 .background-svg {
-  display: block;
-  position: absolute;
-  width: 100%;
-  overflow-x: hidden;
+    display: block;
+    position: absolute;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .svg-container {
-  position: relative;
-  display: block;
+    position: relative;
+    display: block;
 }

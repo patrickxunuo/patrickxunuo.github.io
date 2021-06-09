@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import Landing from './pages/Landing.js'
 import Home from './pages/Home.js'
-import Not from './pages/Not'
+import Loader from './components/Loader'
 import NotRelated from './pages/NotRelated'
 import TitleExpandFormat from './components/TitleExpandFormat'
 import Header from './components/Header'
@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+     <Loader />
       {pageState !== "landing" && <Header changepage={changePageState}/>}
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
@@ -46,9 +47,6 @@ function App() {
           </Route>
           <Route exact path="/notrelated">
             <NotRelated changepage={changePageState}/>
-          </Route>
-          <Route path="/notrelated/not">
-            <Not />
           </Route>
         </Switch>
       </AnimatePresence>

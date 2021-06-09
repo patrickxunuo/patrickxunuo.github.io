@@ -17,14 +17,12 @@ const Home = () => {
         },
         exit: {
             opacity: 0,
-            y: '+10vh',
             transition: { duration: 1.5, ease: "easeInOut" }
         }
     }
 
     return (
         <>
-            <Loader />
             <motion.div variants={homeVariants}
                 initial="hidden"
                 animate="visible"

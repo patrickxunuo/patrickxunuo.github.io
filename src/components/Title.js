@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "aos/dist/aos.css"
 import { motion } from "framer-motion"
 import { BrowserRouter as Switch, Route, Link, useLocation } from "react-router-dom"
 
