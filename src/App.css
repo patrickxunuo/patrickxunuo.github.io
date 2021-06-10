@@ -686,22 +686,45 @@ form {
 
 .not-photo-container {
     display: flex;
-    flex-direction: row;
+    flex-flow: column wrap;
     margin-top: 5em;
     width: 80%;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    height: 150vh;
     z-index: 98;
 }
-
+.photo-card:nth-child(3n+1){order: 1;}
+.photo-card:nth-child(3n+2){order: 2;}
+.photo-card:nth-child(3n){order: 3;}
+.not-photo-container::before,
+.not-photo-container::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+}
 .photo-card{
-    display: block;
-    width: 40%;
+    width: 25em;
     max-width: 25em;
+    display: block;
+    overflow: hidden;
     margin: 1em;
 }
 .not-photo{
-    max-height: 25em;
+    max-width: 25em;
+}
+.card-pop {
+    height: auto;
+    background: linear-gradient(rgba(12, 12, 12,0.5), rgba(12, 12, 12,0));
+    text-align: center;
+    position: absolute;
+    width: 25em;
+    z-index: 100;
+}
+.card-pop h2{
+    width: 100%;
+    font-family: var(--mono);
+    font-weight: lighter;
+    color: var(--white);
 }
 /* not related wrap */
 

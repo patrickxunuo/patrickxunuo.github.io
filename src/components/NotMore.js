@@ -1,17 +1,54 @@
 import react from 'react';
 import { motion } from "framer-motion"
+import { Row1, Row2, Row3 } from "./photo"
 import Photos from "./photo"
-import Image1 from "../images/image1.jpg"
 import { BrowserRouter as Switch, Route, Link, useLocation, useRouteMatch } from "react-router-dom"
 
 const PhotoCard = (props) => {
     const photo = props.photo
-    // let url = require(`../images/${photo.url}.jpg`)
-    // console.log(photo)
+    const description = photo.description
+    const url = photo.url
+
+    const photoVarients = {
+        reset: {
+            scale: 1,
+            transition: { duration: 0.3, ease: "easeInOut" }
+        },
+        hover: {
+            scale: 1.05,
+            transition: { duration: 0.5, ease: "easeInOut" }
+        }
+    }
+    const descriptionTitleVarients = {
+        reset: {
+            opacity: 0,
+            transition: { duration: 0.3, ease: "easeInOut" }
+        },
+        hover: {
+            opacity: 1,
+            transition: { duration: 0.5, ease: "easeInOut" }
+        }
+    }
+
+    const descriptionVarients = {
+        reset: {
+            y: -20,
+            opacity: 0,
+            transition: { duration: 0.3, ease: "easeInOut" }
+        },
+        hover: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5, ease: "easeInOut" }
+        }
+    }
     return (
-        <div className="photo-card">
-            <img src={Image1} className="not-photo"/>
-        </div>
+        <motion.div className="photo-card" whileHover="hover" initial="initial" animate="reset">
+            <motion.div className="card-pop" variants={descriptionTitleVarients}>
+                <motion.h2 variants={descriptionVarients}>{description}</motion.h2>
+            </motion.div>
+            <motion.img src={require(`../images/${url}.jpg`).default} className="not-photo" variants={photoVarients} />
+        </motion.div>
     )
 }
 
@@ -24,10 +61,24 @@ const NotMore = () => {
             <div className="not-photo-container">
                 <Switch>
                     <Route path={`${path}/places`}>
+                        {photos.map(photo => (
+                            <PhotoCard photo={photo} key={photo.id} row={1} />
+                        ))}
+                        {/* <div className="photo-column">
                             {photos.map(photo => (
-                                <PhotoCard photo={photo} key={photo.id}/>
+                                <PhotoCard photo={photo} key={photo.id} row={1}/>
                             ))}
-                            <img src="" alt="" />
+                        </div>
+                        <div className="photo-column">
+                            {photos.map(photo => (
+                                <PhotoCard photo={photo} key={photo.id} row={2}/>
+                            ))}
+                        </div>
+                        <div className="photo-column">
+                            {photos.map(photo => (
+                                <PhotoCard photo={photo} key={photo.id} row={3}/>
+                            ))}
+                        </div> */}
                     </Route>
                     <Route path={`${path}/foods`}>
                         <div className="not-photos">
