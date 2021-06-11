@@ -229,7 +229,7 @@ const TitleExpand = (props) => {
                 </motion.div>}
             <div className="expand-back">
                 <span className="title-arrow-back">{'-->'}</span>
-                <Link to="../">
+                <Link to="./">
                     <motion.input className="more-btn" type="button" value="Back" whileHover={{ scale: 1.1 }} ></motion.input></Link>
             </div>
         </>
